@@ -53,7 +53,7 @@ The reference informs the blush backgrounds, champagne accents, serif and script
 
 ## Katie's Review
 
-- Supply an approved real practitioner portrait. The existing generated hero image is retained and explicitly labelled as a concept image, not Katie's verified photo.
+- Supply an approved real practitioner portrait. The existing generated hero image is retained within the client presentation concept; Katie's verification checklist identifies the real portrait as pending.
 - Confirm public-display consent and captions for all six client gallery images.
 - Confirm clinic address, credentials, contact information and booking provider.
 - Approve the existing proposed biography, treatment copy, clinical-process details and testimonials before public launch.
@@ -61,3 +61,11 @@ The reference informs the blush backgrounds, champagne accents, serif and script
 - Booking and enquiry forms prepare email drafts. They do not send server-side requests or confirm appointments; a booking/email service can be connected once supplied.
 
 The existing concept banner and owner-review workflow remain active. This update does not deploy a public clinic website.
+
+## Reference-Matching Correction
+
+The header and hero were refined against the supplied 1672 x 941 reference after the initial redesign. Desktop header height is 194px beneath the 40px concept banner. The portrait is positioned at approximately x948/y296 with a 423 x 465px frame. The trust strip begins at y817.
+
+`Header.tsx`, `Hero.tsx`, `TrustStrip.tsx`, `BrandLogo.tsx`, `App.tsx`, `index.css` and `index.html` were updated to correct the logo size, social-icon location, fonts, content width, spacing and portrait proportions. A reference-guided background was added at `public/images/majestic-reference-background.webp`, shared across the header and hero without compressing the artwork vertically. The remaining sections and features are preserved.
+
+Header social icons now sit beside the logo to follow the user's latest reference. Footer and contact social links remain available. The decorative art is a generated reconstruction; it is not a pixel-identical original source asset.

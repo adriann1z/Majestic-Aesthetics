@@ -50,19 +50,19 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
   return (
     <header
       ref={headerRef}
-      className={`site-header sticky top-0 z-30 transition-all duration-300 ${
+      className={`site-header ${isScrolled ? 'site-header--scrolled' : ''} sticky top-0 z-30 transition-all duration-300 ${
         isScrolled
           ? 'bg-blush-white/95 backdrop-blur-md shadow-xs border-b border-border-blush'
           : 'bg-blush-white border-b border-border-blush/60'
       }`}
     >
       <div className="site-header-inner max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="flex flex-wrap items-center justify-between gap-3 py-3 sm:py-4">
+        <div className="header-layout flex flex-wrap items-center justify-between gap-3 py-3 sm:py-4">
           
           {/* Zone 1: Brand Wordmark with Official Watercolor & Gold Emblem */}
           <button
             onClick={() => handleNavClick('hero')}
-            className="text-left group cursor-pointer flex shrink-0 items-center py-1"
+            className="header-brand text-left group cursor-pointer flex shrink-0 items-center py-1"
             type="button"
             aria-label="Majestic Aesthetics Home"
           >
@@ -70,11 +70,12 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
               <BrandLogo variant="full" showSubtitle={true} />
             </div>
           </button>
+          <div className="header-socials"><SocialLinks /></div>
 
           {/* Zone 2: Navigation Links */}
           <nav
             aria-label="Main Navigation"
-            className="order-3 w-full hidden lg:flex items-center justify-center gap-7 border-t border-border-blush pt-3 text-[13px] font-medium text-text-charcoal"
+            className="header-navigation order-3 w-full hidden lg:flex items-center justify-center gap-7 border-t border-border-blush pt-3 text-[13px] font-medium text-text-charcoal"
           >
             {navLinks.map((link) => (
               <button
@@ -89,12 +90,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
           </nav>
 
           {/* Zone 3: Primary Action CTA & Mobile Hamburger */}
-          <div className="order-2 flex w-full sm:w-auto sm:ml-auto shrink-0 items-center gap-2 sm:gap-3">
-            <SocialLinks />
+          <div className="header-actions order-2 flex w-full sm:w-auto sm:ml-auto shrink-0 items-center gap-2 sm:gap-3">
             <button
               onClick={onOpenBooking}
               type="button"
-              className="inline-flex items-center gap-2 px-3 sm:px-5 py-2.5 text-xs font-semibold uppercase text-white bg-rose-button hover:bg-rose-accent active:bg-rose-plum rounded-full shadow-xs shadow-rose-button/25 transition-all hover:shadow-md cursor-pointer whitespace-nowrap"
+              className="header-booking inline-flex items-center gap-2 px-3 sm:px-5 py-2.5 text-xs font-semibold uppercase text-white bg-rose-button hover:bg-rose-accent active:bg-rose-plum rounded-full shadow-xs shadow-rose-button/25 transition-all hover:shadow-md cursor-pointer whitespace-nowrap"
             >
               <span>Book Consultation</span>
               <ArrowRight className="w-3.5 h-3.5" />

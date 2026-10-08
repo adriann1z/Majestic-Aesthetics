@@ -1,9 +1,9 @@
 import React from 'react';
-import { ShieldCheck, Stethoscope, UserCheck, Sparkles } from 'lucide-react';
+import { ShieldCheck, Leaf, UserRound, Flower2 } from 'lucide-react';
 import { trustPillars } from '../data/siteConfig';
 
 export const TrustStrip: React.FC = () => {
-  const icons = [Stethoscope, ShieldCheck, UserCheck, Sparkles];
+  const icons = [Leaf, ShieldCheck, UserRound, Flower2];
 
   return (
     <section 
@@ -12,13 +12,13 @@ export const TrustStrip: React.FC = () => {
     >
 
       <div className="section-inner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:divide-x divide-border-blush">
+        <div className="credentials-grid grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:divide-x divide-border-blush">
           {trustPillars.map((pillar, index) => {
             const Icon = icons[index % icons.length];
             return (
               <div 
                 key={pillar.title} 
-                className={`flex items-start gap-3.5 px-3 py-2 sm:px-4 ${
+                className={`credential-item flex items-start gap-3.5 px-3 py-2 sm:px-4 ${
                   index > 1 ? 'pt-4 sm:pt-2' : ''
                 }`}
               >

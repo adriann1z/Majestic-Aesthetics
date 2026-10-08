@@ -41,8 +41,9 @@ export default function App() {
   };
 
   return (
-    <div className="site-shell min-h-screen bg-blush-white text-text-charcoal flex flex-col selection:bg-rose-brand/20 selection:text-rose-plum">
+    <div className="site-shell relative min-h-screen bg-blush-white text-text-charcoal flex flex-col selection:bg-rose-brand/20 selection:text-rose-plum">
       <SectionReveal />
+      <div className="reference-art" aria-hidden="true" />
       
       {/* 1. Client Presentation Concept Banner */}
       <ConceptNotice onOpenChecklist={() => setReviewChecklistOpen(true)} />

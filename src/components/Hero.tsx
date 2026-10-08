@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import heroPortrait from '../assets/images/regenerated_image_1791482961876.webp';
-import { DecorativeBackground } from './DecorativeBackground';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -17,15 +16,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
       id="hero"
       className="hero-section relative bg-blush-white overflow-hidden border-b border-border-blush"
     >
-      <DecorativeBackground variant="hero" />
 
       <div className="hero-inner section-inner max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="hero-grid grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
           {/* Left Column: Editorial Copy (approx 55% / 7 cols) */}
-          <div className="hero-copy lg:col-span-7 space-y-6 sm:space-y-8 max-w-2xl">
+          <div className="hero-copy lg:col-span-7 max-w-2xl">
             {/* Eyebrow with Gold Fleck Accent */}
-            <div className="flex items-center gap-2.5">
+            <div className="hero-eyebrow flex items-center gap-2.5">
               <span className="w-6 h-px bg-gradient-to-r from-gold-metallic to-rose-brand"></span>
               <p className="text-xs uppercase tracking-[0.22em] font-semibold text-rose-accent">
                 Medical Aesthetics &amp; Skin Care · Southsea, Portsmouth
@@ -43,13 +41,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
             </div>
 
             {/* Supporting description */}
-            <p className="text-base sm:text-lg text-text-muted leading-relaxed font-light">
+            <p className="hero-description text-base sm:text-lg text-text-muted leading-relaxed font-light">
               Discover a more personal approach to medical aesthetics and bespoke skin care, where thoughtful treatments, 
               clinical expertise and natural-looking results come together in Southsea.
             </p>
 
             {/* CTA Group */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
+            <div className="hero-buttons flex flex-wrap items-center gap-4 pt-2">
               <button
                 onClick={onOpenBooking}
                 type="button"
@@ -69,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
             </div>
 
             {/* Micro proof & concept note with Gold Star */}
-            <div className="pt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-text-muted">
+            <div className="hero-credentials pt-3 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-text-muted">
               <span className="inline-flex items-center gap-1.5 text-rose-accent font-medium">
                 <Sparkles className="w-3.5 h-3.5 text-gold-metallic" />
                 Clinically led by Katie Osborne
@@ -80,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
           </div>
 
           {/* Right Column: Controlled Height Editorial Image (approx 45% / 5 cols) */}
-          <div className="lg:col-span-5 relative mt-4 lg:mt-0 flex justify-center">
+          <div className="hero-image-column lg:col-span-5 relative mt-4 lg:mt-0 flex justify-center">
             <div className="relative w-full max-w-[460px] lg:max-w-full">
               
               {/* Outer decorative frame with subtle gold corner shine */}
@@ -105,7 +103,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
                   </div>
                 )}
 
-                <span className="absolute top-3 left-3 rounded bg-white/95 px-2 py-1 text-[10px] text-rose-plum">Concept image / practitioner photo pending</span>
               </div>
 
               {/* Small floating editorial badge with gold trim */}
