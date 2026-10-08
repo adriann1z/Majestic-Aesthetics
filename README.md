@@ -1,20 +1,21 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Majestic Aesthetics
 
-# Run and deploy your AI Studio app
-
-This contains everything you need to run your app locally.
-
-View your app in AI Studio: https://ai.studio/apps/e79b74b9-5299-40a0-892f-150a418727c6
+Medical aesthetics website for Majestic Aesthetics in Southsea.
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
-
+Prerequisite: Node.js
 
 1. Install dependencies:
    `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
+2. Create `.env.local` from `.env.example` and set `GEMINI_API_KEY` if needed.
+3. Start the development server:
    `npm run dev`
+
+The app runs at `http://localhost:3000/`.
+
+## Build
+
+```bash
+npm run build
+```
