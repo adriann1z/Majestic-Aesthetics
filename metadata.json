@@ -1,0 +1,6 @@
+{
+  "name": "Majestic Aesthetics — Medical Aesthetics Southsea",
+  "description": "Premium medical aesthetics clinic in Southsea, Portsmouth led by Katie Osborne. Bespoke consultations, natural-looking results, and clinical skin treatments.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
