@@ -1,4 +1,3 @@
-import boostersImage from '../assets/images/treatment_skin_boosters_1791474722864.webp';
 
 export interface Treatment {
   id: string;
@@ -118,8 +117,9 @@ export const treatmentsData: Treatment[] = [
     title: "Skin Boosters & Polynucleotides",
     category: "Skin Quality & Biorevitalisation",
     shortDescription: "Explore personalised options focused on deep skin hydration, cellular renewal and natural texture refinement.",
-    image: boostersImage,
-    imageAlt: "Biorevitalisation serums and ampoules arranged elegantly on rose travertine marble",
+    image: "/images/polynucleotides-under-eye.webp",
+    imageAlt: "Majestic Aesthetics under-eye polynucleotides comparison, labelled before and after one session",
+    imageFit: 'contain',
     fullOverview: "Unlike traditional fillers that add structural volume, skin boosters and polynucleotides work biologically to restore cellular vitality, stimulate collagen and elastin production, and deeply hydrate the dermal layers from within. Ideal for crepey skin, dullness, fine dehydration lines, and tired-looking skin around the eyes, neck, and face.",
     suitability: [
       "Dehydrated, lacklustre skin with reduced firmness or micro-crepiness",
