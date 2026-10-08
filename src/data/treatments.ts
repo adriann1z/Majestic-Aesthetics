@@ -1,4 +1,3 @@
-import clinicImage from '../assets/images/clinic_interior_suite_1791474743453.webp';
 import boostersImage from '../assets/images/treatment_skin_boosters_1791474722864.webp';
 
 export interface Treatment {
@@ -27,8 +26,8 @@ export const treatmentsData: Treatment[] = [
     title: "Dermal Fillers",
     category: "Facial Harmony & Balance",
     shortDescription: "Considered treatments designed to enhance facial harmony, balance and subtle structural definition.",
-    image: "/images/treatment-before-after.webp",
-    imageAlt: "Owner-supplied before-and-after forehead comparison, labelled Anti Ageing",
+    image: "/images/dermal-fillers-before-after.webp",
+    imageAlt: "Majestic Aesthetics lip filler before-and-after comparison",
     imageFit: 'contain',
     fullOverview: "Dermal fillers are hyaluronic acid-based injectable treatments thoughtfully administered to restore volume loss, soften deeper facial contours, and support facial architecture. At Majestic Aesthetics, our philosophy prioritises understated elegance—enhancing your existing features rather than changing the character of your face.",
     suitability: [
@@ -73,8 +72,9 @@ export const treatmentsData: Treatment[] = [
     title: "Anti-Wrinkle Consultations",
     category: "Expression Line Softening",
     shortDescription: "Personalised consultations to explore suitable options for softening the appearance of expression lines.",
-    image: clinicImage,
-    imageAlt: "Private medical aesthetic consultation in a warm, serene clinic environment",
+    image: "/images/treatment-before-after.webp",
+    imageAlt: "Majestic Aesthetics before-and-after forehead comparison, labelled Anti Ageing",
+    imageFit: 'contain',
     fullOverview: "In accordance with UK regulatory standards, prescription-only treatments require an in-person clinical assessment by an Independent Prescriber. During your private consultation at Majestic Aesthetics, Katie will assess dynamic and static facial movement, discuss your skin history, and determine whether medical muscle-relaxing treatments are appropriate for your concerns.",
     suitability: [
       "Clients noticing forehead expression lines, frown creases (glabella), or crow's feet",
