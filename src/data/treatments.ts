@@ -1,4 +1,3 @@
-import contourImage from '../assets/images/treatment_dermal_contour_1791474713954.webp';
 import clinicImage from '../assets/images/clinic_interior_suite_1791474743453.webp';
 import boostersImage from '../assets/images/treatment_skin_boosters_1791474722864.webp';
 
@@ -10,6 +9,7 @@ export interface Treatment {
   shortDescription: string;
   image: string;
   imageAlt: string;
+  imageFit?: 'cover' | 'contain';
   fullOverview: string;
   suitability: string[];
   consultationSteps: string[];
@@ -27,8 +27,9 @@ export const treatmentsData: Treatment[] = [
     title: "Dermal Fillers",
     category: "Facial Harmony & Balance",
     shortDescription: "Considered treatments designed to enhance facial harmony, balance and subtle structural definition.",
-    image: contourImage,
-    imageAlt: "Side profile portrait exhibiting subtle cheekbone balance and natural glowing skin tone",
+    image: "/images/treatment-before-after.webp",
+    imageAlt: "Owner-supplied before-and-after forehead comparison, labelled Anti Ageing",
+    imageFit: 'contain',
     fullOverview: "Dermal fillers are hyaluronic acid-based injectable treatments thoughtfully administered to restore volume loss, soften deeper facial contours, and support facial architecture. At Majestic Aesthetics, our philosophy prioritises understated elegance—enhancing your existing features rather than changing the character of your face.",
     suitability: [
       "Individuals experiencing age-related volume reduction in cheek, marionette, or jawline regions",

@@ -58,11 +58,11 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
           
           {/* Banner Image & Overview */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-            <div className="md:col-span-5 rounded-2xl overflow-hidden aspect-[4/3] bg-blush-pale border border-border-blush">
+            <div className={`md:col-span-5 rounded-2xl overflow-hidden ${treatment.imageFit === 'contain' ? 'aspect-square' : 'aspect-[4/3]'} bg-blush-pale border border-border-blush`}>
               <img
                 src={treatment.image}
                 alt={treatment.imageAlt}
-                className="w-full h-full object-cover"
+                className={`w-full h-full ${treatment.imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />

@@ -21,7 +21,7 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
           <img
             src={treatment.image}
             alt={treatment.imageAlt}
-            className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${
+            className={`w-full h-full ${treatment.imageFit === 'contain' ? 'object-contain' : 'object-cover group-hover:scale-105'} transition-transform duration-700 ${
               imgLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setImgLoaded(true)}
