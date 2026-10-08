@@ -52,21 +52,20 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
 .decorative-background--wash { inset: auto auto 0 0; width: 220px; height: 320px; opacity: .22; transform: rotate(180deg); mask-image: linear-gradient(to right, transparent, black); }
 .decorative-background--wash img { width: 1100px; max-width: none; position: absolute; right: -100px; }
 .site-shell main > section:not(#hero):not(.credentials-strip) > .decorative-background { display: none; }
-.site-shell main > section:not(#hero):not(.credentials-strip)::before,
-.site-shell main > section:not(#hero):not(.credentials-strip)::after {
-  content: '';
+.floral-edges { position: absolute; inset: 707px 0 0; pointer-events: none; z-index: 2; overflow: hidden; }
+.floral-rail {
   position: absolute;
   top: 0;
   bottom: 0;
   width: max(0px, min(320px, calc((100% - 1068px) / 2 - 24px)));
-  background: url('/images/majestic-edge-art.webp') right top / 1100px auto repeat-y;
   opacity: .5;
   mask-image: linear-gradient(to right, transparent, black 65%);
-  pointer-events: none;
-  z-index: -1;
 }
-.site-shell main > section:not(#hero):not(.credentials-strip)::before { left: 0; transform: scaleX(-1); }
-.site-shell main > section:not(#hero):not(.credentials-strip)::after { right: 0; }
+.floral-rail--left { left: 0; transform: scaleX(-1); }
+.floral-rail--right { right: 0; }
+.floral-tile { height: 733.333px; background: url('/images/majestic-edge-art.webp') right top / 1100px 100% no-repeat; }
+.floral-tile:nth-child(even) { transform: scaleY(-1); }
+.site-main:has([role="dialog"]) .floral-edges { visibility: hidden; }
 .reference-art { position: absolute; left: 0; right: 0; top: 40px; height: 777px; background: url('/images/majestic-reference-background.webp') center -40px / 100% 941px no-repeat; pointer-events: none; }
 .site-header { background: transparent; border-bottom: 0; }
 .site-header--scrolled { background: #fff8fbf5; }
@@ -143,8 +142,7 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   .credential-item { flex-direction: column; text-align: center; }
 }
 @media (max-width: 1023px) {
-  .site-shell main > section:not(#hero):not(.credentials-strip)::before,
-  .site-shell main > section:not(#hero):not(.credentials-strip)::after { display: none; }
+  .floral-edges { display: none; }
   .reference-art { height: 1250px; background-size: auto 100%; opacity: .3; }
   .header-layout { grid-template-columns: 1fr auto; grid-template-rows: auto auto; padding-block: 16px; gap: 12px; }
   .header-brand { grid-column: 1; grid-row: 1; }

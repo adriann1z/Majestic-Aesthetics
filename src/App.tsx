@@ -18,6 +18,7 @@ import { ReviewChecklistModal } from './components/ReviewChecklistModal';
 import { PrivacyModal } from './components/PrivacyModal';
 import { Treatment } from './data/treatments';
 import { SectionReveal } from './components/SectionReveal';
+import { FloralEdges } from './components/FloralEdges';
 
 export default function App() {
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
@@ -55,7 +56,8 @@ export default function App() {
       />
 
       {/* Main Content Area */}
-      <main className="flex-1">
+      <main className="site-main relative flex-1">
+        <FloralEdges />
         
         {/* 3. Editorial Hero Section */}
         <Hero
