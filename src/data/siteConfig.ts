@@ -136,8 +136,8 @@ export const clientReviewItems = [
   {
     id: "portrait",
     item: "Katie Osborne Photography",
-    currentConceptValue: "Clean editorial placeholder active",
-    status: "Awaiting practitioner photo",
-    actionRequired: "Provide approved high-resolution clinical headshots or clinic interior imagery."
+    currentConceptValue: "Owner-supplied photograph added to Meet Your Practitioner; hero concept image retained",
+    status: "Profile photo supplied",
+    actionRequired: "Review the supplied profile photo and confirm the preferred approved image for the homepage hero."
   }
 ];

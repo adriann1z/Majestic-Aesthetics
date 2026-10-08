@@ -1,5 +1,5 @@
 import React from 'react';
-import { Camera, CheckCircle2, Award, HeartHandshake, ShieldCheck, ArrowRight } from 'lucide-react';
+import { CheckCircle2, ArrowRight } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { DecorativeBackground } from './DecorativeBackground';
 
@@ -9,8 +9,7 @@ interface PractitionerSectionProps {
 }
 
 export const PractitionerSection: React.FC<PractitionerSectionProps> = ({
-  onOpenBooking,
-  onOpenChecklist
+  onOpenBooking
 }) => {
   return (
     <section 
@@ -21,50 +20,23 @@ export const PractitionerSection: React.FC<PractitionerSectionProps> = ({
       <div className="section-inner max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
-          {/* Left Column: Practitioner Portrait / Verified Placeholder (5 cols) */}
+          {/* Practitioner portrait */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative mx-auto max-w-[420px] lg:max-w-full">
               
-              {/* Elegant Portrait Frame */}
-              <div className="practitioner-photo-area border border-gold-metallic/30 p-8 sm:p-10 flex flex-col items-center justify-center text-center relative overflow-hidden">
-                
-                {/* Background Watercolor Wash & Gold Dust Glow */}
-                <DecorativeBackground variant="botanical" />
-
-                {/* Silhouette / Medical crest motif with gold border */}
-                <div className="w-24 h-24 rounded-full bg-white border-2 border-gold-metallic/50 flex items-center justify-center mb-6 shadow-md relative z-10">
-                  <Camera className="w-10 h-10 text-rose-button" />
-                </div>
-
-                <div className="space-y-3 z-10 max-w-xs relative">
-                  <span className="inline-block px-3 py-1 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-rose-soft text-rose-plum border border-gold-metallic/30">
-                    Client Photography Area
-                  </span>
-                  
-                  <h4 className="font-serif text-xl sm:text-2xl text-text-charcoal font-medium">
-                    Practitioner photography to be supplied
-                  </h4>
-                  
-                  <p className="text-xs text-text-muted leading-relaxed">
-                    Per brand guidelines, stock imagery is never substituted for Katie Osborne's authentic portrait.
-                  </p>
-
-                  <button
-                    onClick={onOpenChecklist}
-                    type="button"
-                    className="inline-flex items-center gap-1.5 text-xs text-rose-accent hover:text-rose-plum underline underline-offset-2 pt-2 cursor-pointer font-medium"
-                  >
-                    <span>Photo specification checklist</span>
-                  </button>
-                </div>
-
-                {/* Subdued corner badge */}
-                <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs py-2 px-3 rounded-xl border border-border-blush text-[11px] text-text-muted flex items-center justify-center gap-2 z-10">
-                  <ShieldCheck className="w-3.5 h-3.5 text-gold-metallic" />
-                  <span>Katie Osborne · Founder &amp; Prescriber</span>
-                </div>
-
-              </div>
+              <figure className="rounded-[22px] overflow-hidden border border-gold-metallic/30 bg-white shadow-lg shadow-rose-brand/15">
+                <img
+                  src="/images/katie-practitioner.webp"
+                  alt="Katie Osborne writing consultation notes at Majestic Aesthetics"
+                  width={1100}
+                  height={1100}
+                  loading="lazy"
+                  className="block w-full h-auto aspect-square object-contain"
+                />
+                <figcaption className="py-3 px-4 text-center text-sm font-serif text-rose-plum border-t border-border-blush">
+                  Katie Osborne
+                </figcaption>
+              </figure>
 
             </div>
           </div>
