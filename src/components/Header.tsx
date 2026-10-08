@@ -44,7 +44,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav aria-label="Social media" className="flex items-center justify-end gap-1 border-b border-[#EAD7DF]/60 py-1">
+        <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-3 py-3 sm:py-4">
+        <nav aria-label="Social media" className="order-2 flex shrink-0 items-center gap-2 sm:gap-3 sm:mr-auto sm:ml-6">
           {[
             { label: 'Facebook', href: 'https://www.facebook.com/majesticaestheticswithkate', Icon: Facebook },
             { label: 'Instagram', href: 'https://www.instagram.com/majestic_aesthetics_official/', Icon: Instagram },
@@ -55,25 +56,24 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`Majestic Aesthetics on ${label} (opens in a new tab)`}
-              className="group relative inline-flex h-9 w-9 items-center justify-center rounded-full text-[#7F5668] hover:bg-[#F3E5EC] hover:text-[#282924] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7F5668] transition-colors"
+              className={`group relative inline-flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full text-white shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7F5668] transition-all motion-reduce:transform-none ${label === 'Facebook' ? 'bg-[#1877F2] hover:bg-[#1264D0]' : 'bg-[#B63275] hover:bg-[#96265F]'}`}
             >
-              <Icon className="h-4 w-4" aria-hidden="true" />
+              <Icon className="h-6 w-6 sm:h-7 sm:w-7" aria-hidden="true" />
               <span className="pointer-events-none absolute right-0 top-full z-40 mt-1 rounded px-2 py-1 text-xs bg-[#282924] text-white opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
                 {label}
               </span>
             </a>
           ))}
         </nav>
-        <div className="flex items-center justify-between h-20 sm:h-24">
           
           {/* Zone 1: Brand Wordmark with Official Watercolor & Gold Emblem */}
           <button
             onClick={() => handleNavClick('hero')}
-            className="text-left group cursor-pointer flex items-center py-1"
+            className="order-1 text-left group cursor-pointer flex items-center py-1 min-w-0"
             type="button"
             aria-label="Majestic Aesthetics Home"
           >
-            <div className="w-52 sm:w-64 transition-transform duration-200 group-hover:scale-[1.02]">
+            <div className="w-44 sm:w-64 transition-transform duration-200 group-hover:scale-[1.02]">
               <BrandLogo variant="full" showSubtitle={true} />
             </div>
           </button>
@@ -81,7 +81,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
           {/* Zone 2: Navigation Links */}
           <nav
             aria-label="Main Navigation"
-            className="hidden lg:flex items-center gap-7 text-[13px] font-medium tracking-wide text-[#282924]"
+            className="order-4 w-full hidden lg:flex items-center justify-center gap-7 border-t border-[#EAD7DF]/60 pt-3 text-[13px] font-medium tracking-wide text-[#282924]"
           >
             {navLinks.map((link) => (
               <button
@@ -96,7 +96,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
           </nav>
 
           {/* Zone 3: Primary Action CTA & Mobile Hamburger */}
-          <div className="flex items-center gap-3">
+          <div className="order-3 flex w-full sm:w-auto items-center justify-between gap-3">
             <button
               onClick={onOpenBooking}
               type="button"
