@@ -1,3 +1,7 @@
+import contourImage from '../assets/images/treatment_dermal_contour_1791474713954.webp';
+import clinicImage from '../assets/images/clinic_interior_suite_1791474743453.webp';
+import boostersImage from '../assets/images/treatment_skin_boosters_1791474722864.webp';
+
 export interface Treatment {
   id: string;
   slug: string;
@@ -23,7 +27,7 @@ export const treatmentsData: Treatment[] = [
     title: "Dermal Fillers",
     category: "Facial Harmony & Balance",
     shortDescription: "Considered treatments designed to enhance facial harmony, balance and subtle structural definition.",
-    image: "/src/assets/images/treatment_dermal_contour_1791474713954.jpg",
+    image: contourImage,
     imageAlt: "Side profile portrait exhibiting subtle cheekbone balance and natural glowing skin tone",
     fullOverview: "Dermal fillers are hyaluronic acid-based injectable treatments thoughtfully administered to restore volume loss, soften deeper facial contours, and support facial architecture. At Majestic Aesthetics, our philosophy prioritises understated elegance—enhancing your existing features rather than changing the character of your face.",
     suitability: [
@@ -68,7 +72,7 @@ export const treatmentsData: Treatment[] = [
     title: "Anti-Wrinkle Consultations",
     category: "Expression Line Softening",
     shortDescription: "Personalised consultations to explore suitable options for softening the appearance of expression lines.",
-    image: "/src/assets/images/clinic_interior_suite_1791474743453.jpg",
+    image: clinicImage,
     imageAlt: "Private medical aesthetic consultation in a warm, serene clinic environment",
     fullOverview: "In accordance with UK regulatory standards, prescription-only treatments require an in-person clinical assessment by an Independent Prescriber. During your private consultation at Majestic Aesthetics, Katie will assess dynamic and static facial movement, discuss your skin history, and determine whether medical muscle-relaxing treatments are appropriate for your concerns.",
     suitability: [
@@ -113,7 +117,7 @@ export const treatmentsData: Treatment[] = [
     title: "Skin Boosters & Polynucleotides",
     category: "Skin Quality & Biorevitalisation",
     shortDescription: "Explore personalised options focused on deep skin hydration, cellular renewal and natural texture refinement.",
-    image: "/src/assets/images/treatment_skin_boosters_1791474722864.jpg",
+    image: boostersImage,
     imageAlt: "Biorevitalisation serums and ampoules arranged elegantly on rose travertine marble",
     fullOverview: "Unlike traditional fillers that add structural volume, skin boosters and polynucleotides work biologically to restore cellular vitality, stimulate collagen and elastin production, and deeply hydrate the dermal layers from within. Ideal for crepey skin, dullness, fine dehydration lines, and tired-looking skin around the eyes, neck, and face.",
     suitability: [

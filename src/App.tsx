@@ -17,6 +17,7 @@ import { BookingModal } from './components/BookingModal';
 import { ReviewChecklistModal } from './components/ReviewChecklistModal';
 import { PrivacyModal } from './components/PrivacyModal';
 import { Treatment } from './data/treatments';
+import { SectionReveal } from './components/SectionReveal';
 
 export default function App() {
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
@@ -35,12 +36,13 @@ export default function App() {
   const handleNavigate = (sectionId: string) => {
     const el = document.getElementById(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#FFF8FB] text-[#282924] flex flex-col selection:bg-[#C08EA1]/20 selection:text-[#7F5668]">
+    <div className="site-shell min-h-screen bg-blush-white text-text-charcoal flex flex-col selection:bg-rose-brand/20 selection:text-rose-plum">
+      <SectionReveal />
       
       {/* 1. Client Presentation Concept Banner */}
       <ConceptNotice onOpenChecklist={() => setReviewChecklistOpen(true)} />

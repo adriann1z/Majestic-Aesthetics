@@ -30,34 +30,34 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section 
       aria-label="Client Testimonials and Reviews"
-      className="py-16 sm:py-24 bg-[#F9EDF2] border-b border-[#EAD7DF]"
+      className="py-16 sm:py-24 bg-blush-pale border-b border-border-blush"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="section-inner max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
           <div className="flex items-center justify-center gap-2">
-            <span className="w-6 h-px bg-gradient-to-r from-[#D4AF37] to-[#C08EA1]"></span>
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#8D5A6F]">
+            <span className="w-6 h-px bg-gradient-to-r from-gold-metallic to-rose-brand"></span>
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-rose-accent">
               Patient Experiences
             </span>
-            <span className="w-6 h-px bg-gradient-to-l from-[#D4AF37] to-[#C08EA1]"></span>
+            <span className="w-6 h-px bg-gradient-to-l from-gold-metallic to-rose-brand"></span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#282924] font-normal tracking-tight">
-            Words from <span className="font-script text-4xl sm:text-5xl lg:text-6xl text-[#7F5668] inline-block ml-1 font-normal">our clients.</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-text-charcoal font-normal tracking-tight">
+            Words from <span className="font-script text-4xl sm:text-5xl lg:text-6xl text-rose-plum inline-block ml-1 font-normal">our clients.</span>
           </h2>
 
-          <p className="text-base text-[#74786E] font-light leading-relaxed">
-            Real feedback from individuals who have visited Katie Osborne for personalised consultations.
+          <p className="text-base text-text-muted font-light leading-relaxed">
+            A space for client experiences, with approved feedback to be added by Katie.
           </p>
         </div>
 
         {/* Professional Review Policy Banner */}
-        <div className="mb-10 max-w-3xl mx-auto p-4.5 rounded-2xl bg-white/80 border border-[#EAD7DF] flex items-center justify-center gap-3 text-center shadow-xs">
-          <ShieldCheck className="w-5 h-5 text-[#A96883] shrink-0" />
-          <p className="text-xs sm:text-sm text-[#74786E]">
-            <strong className="text-[#282924] font-medium">Authenticity Standard:</strong> In adherence to UK medical advertising ethics, reviews are not fabricated. Verified client testimonials will appear here once approved.
+        <div className="mb-10 max-w-3xl mx-auto p-4.5 rounded-2xl bg-white/80 border border-border-blush flex items-center justify-center gap-3 text-center shadow-xs">
+          <ShieldCheck className="w-5 h-5 text-rose-button shrink-0" />
+          <p className="text-xs sm:text-sm text-text-muted">
+            <strong className="text-text-charcoal font-medium">Authenticity Standard:</strong> In adherence to UK medical advertising ethics, reviews are not fabricated. Verified client testimonials will appear here once approved.
           </p>
         </div>
 
@@ -66,28 +66,28 @@ export const TestimonialsSection: React.FC = () => {
           {sampleLayouts.map((item, index) => (
             <div 
               key={index}
-              className="bg-white rounded-3xl p-7 border border-[#EAD7DF] shadow-xs flex flex-col justify-between relative group hover:border-[#C08EA1]/70 transition-colors"
+                className="bg-white rounded-lg p-7 border border-border-blush shadow-xs flex flex-col justify-between relative group hover:border-rose-brand/70 transition-colors"
             >
               <div>
-                <Quote className="w-8 h-8 text-[#EAD7DF] mb-4 group-hover:text-[#C08EA1]/50 transition-colors" />
+                <Quote className="w-8 h-8 text-border-blush mb-4 group-hover:text-rose-brand/50 transition-colors" />
 
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8D5A6F] block mb-2">
+                <span className="text-[11px] font-semibold uppercase tracking-wider text-rose-accent block mb-2">
                   {item.treatment}
                 </span>
 
-                <p className="font-serif italic text-base sm:text-lg text-[#282924] leading-relaxed mb-6">
+                <p className="font-serif italic text-base sm:text-lg text-text-charcoal leading-relaxed mb-6">
                   "{item.previewQuote}"
                 </p>
               </div>
 
-              <div className="pt-4 border-t border-[#EAD7DF]/60 flex items-center justify-between text-xs text-[#74786E]">
+              <div className="pt-4 border-t border-border-blush/60 flex items-center justify-between text-xs text-text-muted">
                 <div className="flex items-center gap-2">
-                  <div className="w-7 h-7 rounded-full bg-[#F6E6ED] text-[#8D5A6F] font-serif font-medium flex items-center justify-center text-xs">
+                  <div className="w-7 h-7 rounded-full bg-rose-soft text-rose-accent font-serif font-medium flex items-center justify-center text-xs">
                     {item.initials.charAt(0)}
                   </div>
                   <div>
-                    <span className="font-medium text-[#282924] block">{item.initials}</span>
-                    <span className="text-[10px] text-[#8D5A6F]">{item.source}</span>
+                    <span className="font-medium text-text-charcoal block">{item.initials}</span>
+                    <span className="text-[10px] text-rose-accent">{item.source}</span>
                   </div>
                 </div>
 

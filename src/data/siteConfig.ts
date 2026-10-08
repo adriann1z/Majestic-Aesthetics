@@ -99,6 +99,13 @@ export const trustPillars = [
 
 export const clientReviewItems = [
   {
+    id: "gallery-consent",
+    item: "Gallery Photography Consent",
+    currentConceptValue: "Six owner-supplied treatment photographs retained in the gallery",
+    status: "Owner review required",
+    actionRequired: "Confirm documented permission for public display of every client photograph and approve the captions."
+  },
+  {
     id: "address",
     item: "Clinic Address",
     currentConceptValue: "166 Eastney Road, Southsea, Portsmouth, PO4 8DY",

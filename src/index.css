@@ -3,29 +3,98 @@
 @theme {
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
-  --font-nav: "Manrope", "DM Sans", sans-serif;
-  --font-script: "Alex Brush", "Great Vibes", cursive;
+  --font-nav: "DM Sans", system-ui, sans-serif;
+  --font-script: "Great Vibes", cursive;
 
-  --color-blush-white: #FFF8FB;
-  --color-blush-pale: #F9EDF2;
-  --color-rose-soft: #F6E6ED;
-  --color-rose-brand: #C08EA1;
-  --color-rose-button: #A96883;
-  --color-rose-accent: #8D5A6F;
-  --color-rose-plum: #7F5668;
-  --color-gold-light: #F7E7B4;
-  --color-gold-metallic: #D4AF37;
-  --color-gold-deep: #B38F2C;
-  --color-border-blush: #EAD7DF;
-  --color-text-charcoal: #282924;
-  --color-text-muted: #74786E;
+  --color-blush-white: #FFF9FB;
+  --color-blush-pale: #F8E9EF;
+  --color-rose-soft: #F4DCE6;
+  --color-rose-brand: #B66C8D;
+  --color-rose-button: #9C5678;
+  --color-rose-accent: #87516B;
+  --color-rose-plum: #75445C;
+  --color-gold-light: #F0DEB7;
+  --color-gold-metallic: #D9B66F;
+  --color-gold-deep: #9D783A;
+  --color-border-blush: #ECD5E0;
+  --color-text-charcoal: #292528;
+  --color-text-muted: #6F626A;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: #FFF8FB;
-  color: #282924;
+  background-color: var(--color-blush-white);
+  color: var(--color-text-charcoal);
   -webkit-font-smoothing: antialiased;
+}
+
+html { scroll-padding-top: var(--header-offset, 215px); }
+* { letter-spacing: 0 !important; }
+button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
+:focus-visible { outline: 2px solid var(--color-rose-accent); outline-offset: 4px; }
+input, select, textarea { accent-color: var(--color-rose-button); }
+p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
+.site-shell { overflow-x: clip; }
+.site-shell main > section { position: relative; isolation: isolate; }
+.site-shell main > section > .section-inner { position: relative; z-index: 1; }
+.section-inner, .site-header-inner, .footer-inner { max-width: 1280px; }
+.faq-inner { max-width: 900px; }
+.decorative-background { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: -1; }
+.decorative-background img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.decorative-background--hero { opacity: .75; mask-image: linear-gradient(to right, black, #0005 8%, transparent 20%, transparent 80%, #0005 92%, black); }
+.decorative-background--botanical { inset: 0 0 0 auto; width: 230px; opacity: .36; mask-image: linear-gradient(to right, transparent, black 75%); }
+.decorative-background--botanical img { width: 1050px; max-width: none; object-fit: cover; object-position: right; position: absolute; right: -90px; }
+.decorative-background--wash { inset: auto auto 0 0; width: 220px; height: 320px; opacity: .22; transform: rotate(180deg); mask-image: linear-gradient(to right, transparent, black); }
+.decorative-background--wash img { width: 1100px; max-width: none; position: absolute; right: -100px; }
+.site-header { background: var(--color-blush-white); }
+.hero-section { background: var(--color-blush-white); }
+.hero-inner { padding-top: 52px; padding-bottom: 64px; }
+.hero-heading { font-size: 58px; line-height: 1.15; }
+.hero-heading .font-script { font-size: 68px; line-height: 1.2; }
+.hero-copy { max-width: 620px; }
+.hero-portrait { border-radius: 22px; height: 510px; box-shadow: 0 16px 36px #87516b20; }
+.hero-badge { border-radius: 12px; }
+.credentials-strip { background: var(--color-blush-pale); }
+.treatment-card { border-radius: 8px; box-shadow: 0 6px 24px #87516b08; }
+.treatment-card:hover { box-shadow: 0 16px 32px #87516b15; }
+.consultation-band { border-radius: 0; border-left: 0; border-right: 0; background: transparent; padding: 28px 0; }
+.practitioner-photo-area { border-radius: 22px; background: var(--color-blush-white); min-height: 480px; }
+.practitioner-highlights > div { border: 0; border-radius: 0; border-bottom: 1px solid var(--color-border-blush); background: transparent; padding: 12px 0; }
+.skincare-photo { border-radius: 22px; }
+.skincare-photo img { filter: none; }
+.process-step { border: 0; border-radius: 0; background: transparent; box-shadow: none; padding: 20px 24px; border-top: 1px solid var(--color-gold-metallic); }
+.process-step:hover { box-shadow: none; }
+.process-icon { border-radius: 50%; }
+.contact-information { background: transparent; border: 0; border-radius: 0; box-shadow: none; padding: 0; }
+.contact-form { border-radius: 8px; box-shadow: 0 12px 36px #87516b0c; }
+.site-footer { background: var(--color-rose-plum); }
+.site-footer a:focus-visible, .site-footer button:focus-visible { outline-color: white; }
+.site-shell [role="dialog"] > div { border-radius: 12px; }
+.site-shell [role="dialog"] input, .site-shell [role="dialog"] select, .site-shell [role="dialog"] textarea { border-radius: 6px; }
+.section-reveal { animation: section-reveal .7s ease-out both; }
+@keyframes section-reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@media (min-width: 1600px) {
+  .hero-inner { padding-top: 62px; padding-bottom: 70px; }
+  .decorative-background--hero img { object-fit: fill; }
+}
+@media (max-width: 1279px) {
+  .decorative-background--hero { opacity: .28; }
+  .hero-heading { font-size: 48px; }
+  .hero-heading .font-script { font-size: 58px; }
+}
+@media (max-width: 767px) {
+  .decorative-background--hero { opacity: .12; }
+  .decorative-background--botanical, .decorative-background--wash { display: none; }
+  .hero-inner { padding-top: 36px; padding-bottom: 46px; }
+  .hero-heading { font-size: 38px; }
+  .hero-heading .font-script { font-size: 46px; }
+  .hero-portrait { height: auto; aspect-ratio: 4 / 5; }
+  .practitioner-photo-area { min-height: 380px; }
+  .process-step { padding: 24px 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
 h1, h2, h3, .font-playfair {

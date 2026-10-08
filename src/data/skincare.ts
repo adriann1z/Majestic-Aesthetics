@@ -1,3 +1,5 @@
+import skincareImage from '../assets/images/obagi_skincare_bottles_1791474733199.webp';
+
 export interface SkincareProduct {
   id: string;
   name: string;
@@ -57,7 +59,7 @@ export const skincareHeroData = {
   heading: "Beautiful skin goes beyond the treatment room.",
   description: "We're exploring a new approach to professional skincare at Majestic Aesthetics, with the possibility of introducing a carefully selected Obagi range to complement personalised skin consultations.",
   statusLabel: "Proposed addition — coming soon, subject to confirmation",
-  image: "/src/assets/images/obagi_skincare_bottles_1791474733199.jpg",
+  image: skincareImage,
   imageAlt: "Luxury medical-grade skincare formulation droppers and creams on pale blush marble",
   disclaimer: "Please note: Majestic Aesthetics is exploring the introduction of Obagi Medical skincare. Products and pricing will be finalized once authorized stocking arrangements are verified by Katie Osborne."
 };

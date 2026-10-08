@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { X, Maximize2, ChevronRight, ChevronLeft } from 'lucide-react';
 import { galleryItems, GalleryItem } from '../data/gallery';
+import { DecorativeBackground } from './DecorativeBackground';
 
 export const GallerySection: React.FC = () => {
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
@@ -56,25 +57,26 @@ export const GallerySection: React.FC = () => {
   return (
     <section 
       id="gallery"
-      className="py-16 sm:py-24 bg-[#FFF8FB] border-b border-[#EAD7DF]"
+      className="py-16 sm:py-24 bg-blush-white border-b border-border-blush"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <DecorativeBackground variant="botanical" />
+      <div className="section-inner max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
           <div className="flex items-center justify-center gap-2">
-            <span className="w-6 h-px bg-gradient-to-r from-[#D4AF37] to-[#C08EA1]"></span>
-            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-[#8D5A6F]">
+            <span className="w-6 h-px bg-gradient-to-r from-gold-metallic to-rose-brand"></span>
+            <span className="text-xs uppercase tracking-[0.2em] font-semibold text-rose-accent">
               The Results Gallery
             </span>
-            <span className="w-6 h-px bg-gradient-to-l from-[#D4AF37] to-[#C08EA1]"></span>
+            <span className="w-6 h-px bg-gradient-to-l from-gold-metallic to-rose-brand"></span>
           </div>
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#282924] font-normal tracking-tight">
-            Beauty in the <span className="font-script text-4xl sm:text-5xl lg:text-6xl text-[#7F5668] inline-block ml-1 font-normal">details.</span>
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-text-charcoal font-normal tracking-tight">
+            Beauty in the <span className="font-script text-4xl sm:text-5xl lg:text-6xl text-rose-plum inline-block ml-1 font-normal">details.</span>
           </h2>
 
-          <p className="text-base text-[#74786E] font-light leading-relaxed">
+          <p className="text-base text-text-muted font-light leading-relaxed">
             A closer look at our treatments and the individual results of our clients.
           </p>
         </div>
@@ -87,29 +89,29 @@ export const GallerySection: React.FC = () => {
               type="button"
               aria-label={`View ${item.title}`}
               onClick={() => setActiveItem(item)}
-              className="group relative text-left rounded-lg overflow-hidden border border-[#EAD7DF] bg-white cursor-pointer hover:-translate-y-1 hover:border-[#C08EA1] hover:shadow-xl hover:shadow-[#C08EA1]/15 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#7F5668] transition-all duration-500 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
+              className="group relative text-left rounded-lg overflow-hidden border border-border-blush bg-white cursor-pointer hover:-translate-y-1 hover:border-rose-brand hover:shadow-xl hover:shadow-rose-brand/15 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-plum transition-all duration-500 motion-reduce:transition-none motion-reduce:hover:translate-y-0"
             >
               <div className="relative aspect-square">
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.015] motion-reduce:transform-none"
                 width={750}
                 height={750}
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
 
-              <span title="View image" className="absolute top-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/95 text-[#7F5668] shadow-sm opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300"><Maximize2 className="w-4 h-4" /></span>
+              <span title="View image" className="absolute top-3 right-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/95 text-rose-plum shadow-sm opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity duration-300"><Maximize2 className="w-4 h-4" /></span>
               </div>
-              <div className="p-5 border-t border-[#EAD7DF]">
-                <span className="block text-[11px] font-semibold uppercase text-[#8D5A6F] mb-2">
+              <div className="p-5 border-t border-border-blush">
+                <span className="block text-[11px] font-semibold uppercase text-rose-accent mb-2">
                   {item.editorialTag}
                 </span>
-                <h4 className="font-serif text-xl font-medium leading-snug text-[#282924]">
+                <h4 className="font-serif text-xl font-medium leading-snug text-text-charcoal">
                   {item.title}
                 </h4>
-                <p className="text-sm text-[#74786E] mt-2 leading-relaxed">
+                <p className="text-sm text-text-muted mt-2 leading-relaxed">
                   {item.caption}
                 </p>
               </div>
@@ -118,8 +120,9 @@ export const GallerySection: React.FC = () => {
         </div>
 
         {/* Content Note for Katie */}
-        <div className="mt-8 text-center text-xs text-[#74786E] italic">
+        <div className="mt-8 text-center text-xs text-text-muted italic">
           Individual results vary. Treatments are tailored following a consultation.
+          <span className="block mt-2">Owner review: confirm client photography consent before public launch.</span>
         </div>
 
       </div>
@@ -134,13 +137,13 @@ export const GallerySection: React.FC = () => {
           aria-label={activeItem.title}
         >
           <div 
-            className="relative max-w-3xl w-full max-h-[92dvh] bg-[#282924] rounded-lg overflow-y-auto border border-[#3D3E38] shadow-2xl flex flex-col"
+            className="relative max-w-3xl w-full max-h-[92dvh] bg-text-charcoal rounded-lg overflow-y-auto border border-[#3D3E38] shadow-2xl flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Lightbox Topbar */}
             <div className="flex items-center justify-between p-4 px-6 border-b border-[#3D3E38] text-white">
               <div>
-                <span className="text-[11px] uppercase tracking-wider text-[#C08EA1] block">
+                <span className="text-[11px] uppercase tracking-wider text-rose-brand block">
                   {activeItem.editorialTag}
                 </span>
                 <h3 className="font-serif text-xl">{activeItem.title}</h3>
@@ -186,7 +189,7 @@ export const GallerySection: React.FC = () => {
             {/* Lightbox Caption */}
             <div className="p-4 px-6 text-xs text-stone-300 flex flex-wrap gap-3 items-center justify-between border-t border-[#3D3E38]">
               <span>{activeItem.caption}</span>
-              <span className="text-[11px] text-[#A96883] font-mono">Majestic Aesthetics</span>
+              <span className="text-[11px] text-rose-button font-mono">Majestic Aesthetics</span>
             </div>
           </div>
         </div>

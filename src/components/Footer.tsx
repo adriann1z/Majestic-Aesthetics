@@ -18,11 +18,9 @@ export const Footer: React.FC<FooterProps> = ({
   onOpenBooking
 }) => {
   return (
-    <footer className="bg-[#7F5668] text-[#F9EDF2] border-t border-[#8D5A6F] relative overflow-hidden">
-      {/* Background Soft Glow */}
-      <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-radial from-[#F78DA7]/15 to-transparent blur-3xl pointer-events-none" />
+    <footer className="site-footer bg-rose-plum text-blush-pale border-t border-rose-accent relative overflow-hidden">
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20 relative z-10">
+      <div className="footer-inner max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 lg:py-20 relative z-10">
         
         {/* Main 4-Column Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
@@ -40,12 +38,12 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
             </button>
 
-            <p className="text-sm text-[#F9EDF2]/90 leading-relaxed max-w-sm">
+            <p className="text-sm text-blush-pale/90 leading-relaxed max-w-sm">
               Thoughtful medical aesthetics, personalised care and natural-looking beauty in Southsea, Portsmouth.
             </p>
             <SocialLinks />
 
-            <div className="pt-2 text-xs text-[#EAD7DF]/80 space-y-1">
+            <div className="pt-2 text-xs text-border-blush/80 space-y-1">
               <p>Clinical Lead: Katie Osborne</p>
               <p>Registered Midwife · Independent Prescriber</p>
             </div>
@@ -53,10 +51,10 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Col 2: Explore Navigation (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#EAD7DF]">
+            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-border-blush">
               Explore
             </h4>
-            <ul className="space-y-2.5 text-sm text-[#F9EDF2]/80">
+            <ul className="space-y-2.5 text-sm text-blush-pale/80">
               <li>
                 <button
                   onClick={() => onNavigate('hero')}
@@ -125,13 +123,13 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Col 3: Contact & Clinic Location (lg:col-span-3) */}
           <div className="lg:col-span-3 space-y-4">
-            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#EAD7DF]">
+            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-border-blush">
               Clinic Details
             </h4>
             
-            <div className="space-y-3 text-sm text-[#F9EDF2]/90">
+            <div className="space-y-3 text-sm text-blush-pale/90">
               <div className="flex items-start gap-2.5">
-                <Mail className="w-4 h-4 text-[#EAD7DF] shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 text-border-blush shrink-0 mt-0.5" />
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className="hover:text-white underline underline-offset-2 transition-colors"
@@ -141,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
 
               <div className="flex items-start gap-2.5">
-                <MapPin className="w-4 h-4 text-[#EAD7DF] shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-border-blush shrink-0 mt-0.5" />
                 <div>
                   <p>{siteConfig.location.addressLine}</p>
                   <p>{siteConfig.location.town}, {siteConfig.location.city}</p>
@@ -154,7 +152,7 @@ export const Footer: React.FC<FooterProps> = ({
               <button
                 onClick={onOpenBooking}
                 type="button"
-                className="inline-flex items-center gap-2 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-[#7F5668] bg-white hover:bg-[#F9EDF2] rounded-full transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-5 py-2 text-xs font-semibold uppercase tracking-wider text-rose-plum bg-white hover:bg-blush-pale rounded-full transition-colors cursor-pointer"
               >
                 Book a Consultation
               </button>
@@ -163,10 +161,10 @@ export const Footer: React.FC<FooterProps> = ({
 
           {/* Col 4: Compliance & Policies (lg:col-span-2) */}
           <div className="lg:col-span-2 space-y-4">
-            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-[#EAD7DF]">
+            <h4 className="text-xs uppercase tracking-[0.2em] font-semibold text-border-blush">
               Information
             </h4>
-            <ul className="space-y-2.5 text-xs text-[#F9EDF2]/80">
+            <ul className="space-y-2.5 text-xs text-blush-pale/80">
               <li>
                 <button
                   onClick={onOpenPrivacy}
@@ -197,7 +195,7 @@ export const Footer: React.FC<FooterProps> = ({
               <li>
                 <button
                   onClick={onOpenChecklist}
-                  className="hover:text-white transition-colors cursor-pointer underline text-[#EAD7DF]"
+                  className="hover:text-white transition-colors cursor-pointer underline text-border-blush"
                   type="button"
                 >
                   Katie's Review Deck
@@ -209,12 +207,12 @@ export const Footer: React.FC<FooterProps> = ({
         </div>
 
         {/* Bottom Legal Bar */}
-        <div className="mt-14 pt-8 border-t border-[#8D5A6F]/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#EAD7DF]/80">
+        <div className="mt-14 pt-8 border-t border-rose-accent/70 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-border-blush/80">
           <div>
             © 2026 Majestic Aesthetics. All rights reserved.
           </div>
 
-          <div className="text-center sm:text-right text-[#F9EDF2]/90 italic font-serif">
+          <div className="text-center sm:text-right text-blush-pale/90 italic font-serif">
             Private design concept prepared for Katie Osborne — not a live clinic website.
           </div>
         </div>
