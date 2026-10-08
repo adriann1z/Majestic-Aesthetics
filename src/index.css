@@ -63,10 +63,10 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
 }
 .floral-rail--left { left: 0; transform: scaleX(-1); }
 .floral-rail--right { right: 0; }
-.floral-tile { height: 733.333px; background: url('/images/majestic-edge-art.webp') right top / 1100px 100% no-repeat; }
+.floral-tile { height: 733.333px; background: url('../public/images/majestic-edge-art.webp') right top / 1100px 100% no-repeat; }
 .floral-tile:nth-child(even) { transform: scaleY(-1); }
 .site-main:has([role="dialog"]) .floral-edges { visibility: hidden; }
-.reference-art { position: absolute; left: 0; right: 0; top: 40px; height: 777px; background: url('/images/majestic-reference-background.webp') center -40px / 100% 941px no-repeat; pointer-events: none; }
+.reference-art { position: absolute; left: 0; right: 0; top: 40px; height: 777px; background: url('../public/images/majestic-reference-background.webp') center -40px / 100% 941px no-repeat; pointer-events: none; }
 .site-header { background: transparent; border-bottom: 0; }
 .site-header--scrolled { background: #fff8fbf5; }
 .site-header-inner, .hero-inner { padding-inline: 32px; }

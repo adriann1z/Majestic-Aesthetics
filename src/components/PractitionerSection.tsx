@@ -26,7 +26,7 @@ export const PractitionerSection: React.FC<PractitionerSectionProps> = ({
               
               <figure className="rounded-[22px] overflow-hidden border border-gold-metallic/30 bg-white shadow-lg shadow-rose-brand/15">
                 <img
-                  src="/images/katie-practitioner.webp"
+                  src={`${import.meta.env.BASE_URL}images/katie-practitioner.webp`}
                   alt="Katie Osborne writing consultation notes at Majestic Aesthetics"
                   width={1100}
                   height={1100}
