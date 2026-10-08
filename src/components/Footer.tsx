@@ -2,6 +2,7 @@ import React from 'react';
 import { Mail, MapPin, Heart, Shield, Sparkles } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { BrandLogo } from './BrandLogo';
+import { SocialLinks } from './SocialLinks';
 
 interface FooterProps {
   onNavigate: (sectionId: string) => void;
@@ -42,6 +43,7 @@ export const Footer: React.FC<FooterProps> = ({
             <p className="text-sm text-[#F9EDF2]/90 leading-relaxed max-w-sm">
               Thoughtful medical aesthetics, personalised care and natural-looking beauty in Southsea, Portsmouth.
             </p>
+            <SocialLinks />
 
             <div className="pt-2 text-xs text-[#EAD7DF]/80 space-y-1">
               <p>Clinical Lead: Katie Osborne</p>
