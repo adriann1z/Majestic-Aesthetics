@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Calendar, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowRight, Calendar, Facebook, Instagram } from 'lucide-react';
 import { BrandLogo } from './BrandLogo';
 
 interface HeaderProps {
@@ -44,6 +44,26 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav aria-label="Social media" className="flex items-center justify-end gap-1 border-b border-[#EAD7DF]/60 py-1">
+          {[
+            { label: 'Facebook', href: 'https://www.facebook.com/majesticaestheticswithkate', Icon: Facebook },
+            { label: 'Instagram', href: 'https://www.instagram.com/majestic_aesthetics_official/', Icon: Instagram },
+          ].map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Majestic Aesthetics on ${label} (opens in a new tab)`}
+              className="group relative inline-flex h-9 w-9 items-center justify-center rounded-full text-[#7F5668] hover:bg-[#F3E5EC] hover:text-[#282924] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7F5668] transition-colors"
+            >
+              <Icon className="h-4 w-4" aria-hidden="true" />
+              <span className="pointer-events-none absolute right-0 top-full z-40 mt-1 rounded px-2 py-1 text-xs bg-[#282924] text-white opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
+                {label}
+              </span>
+            </a>
+          ))}
+        </nav>
         <div className="flex items-center justify-between h-20 sm:h-24">
           
           {/* Zone 1: Brand Wordmark with Official Watercolor & Gold Emblem */}
