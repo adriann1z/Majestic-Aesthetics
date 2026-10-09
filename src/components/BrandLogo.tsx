@@ -4,14 +4,23 @@ interface BrandLogoProps {
   showSubtitle?: boolean;
 }
 
-export const BrandLogo = ({ variant = 'full', className = '' }: BrandLogoProps) => (
-  <div className={`brand-logo ${variant === 'light' ? 'brand-logo--light' : ''} ${className}`}>
-    <img
-      src={`${import.meta.env.BASE_URL}images/majestic-logo-transparent.webp`}
-      alt="Majestic Aesthetics - Aesthetics & Skin Care"
-      width={1448}
-      height={1086}
-      decoding="async"
-    />
+export const BrandLogo = ({ variant = 'full', className = '', showSubtitle = true }: BrandLogoProps) => (
+  <div className={`brand-logo brand-logo--${variant} ${className}`} aria-label="Majestic Aesthetics">
+    <div className="brand-logo__primary">
+      <span>Majestic</span>
+      <span className="brand-logo__spark" aria-hidden="true" />
+    </div>
+    <div className="brand-logo__secondary">Aesthetics</div>
+    {showSubtitle && (
+      <div className="brand-logo__services" aria-label="Anti-aging, hormone health, skin care">
+        <span aria-hidden="true" />
+        <strong>Anti-Aging</strong>
+        <b aria-hidden="true">|</b>
+        <strong>Hormone Health</strong>
+        <b aria-hidden="true">|</b>
+        <strong>Skin Care</strong>
+        <span aria-hidden="true" />
+      </div>
+    )}
   </div>
 );
