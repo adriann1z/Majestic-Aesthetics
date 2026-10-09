@@ -26,12 +26,12 @@ export const PractitionerSection: React.FC<PractitionerSectionProps> = ({
               
               <figure className="rounded-[22px] overflow-hidden border border-gold-metallic/30 bg-white shadow-lg shadow-rose-brand/15">
                 <img
-                  src={`${import.meta.env.BASE_URL}images/katie-practitioner.webp`}
-                  alt="Katie Osborne writing consultation notes at Majestic Aesthetics"
-                  width={1100}
-                  height={1100}
+                  src={`${import.meta.env.BASE_URL}images/katie-clinic-portrait.jpeg`}
+                  alt="Katie Osborne in the Majestic Aesthetics treatment room"
+                  width={1320}
+                  height={1269}
                   loading="lazy"
-                  className="block w-full h-auto aspect-square object-contain"
+                  className="block w-full h-auto"
                 />
                 <figcaption className="py-3 px-4 text-center text-sm font-serif text-rose-plum border-t border-border-blush">
                   Katie Osborne
