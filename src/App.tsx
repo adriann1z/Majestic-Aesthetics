@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { ConceptNotice } from './components/ConceptNotice';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustStrip } from './components/TrustStrip';
@@ -54,9 +53,6 @@ export default function App() {
       <SectionReveal />
       <div className="reference-art" aria-hidden="true" />
       
-      {/* 1. Client Presentation Concept Banner */}
-      <ConceptNotice onOpenChecklist={() => setReviewChecklistOpen(true)} />
-
       {/* 2. Sticky Luxury Navigation */}
       <Header
         onOpenBooking={() => handleOpenBooking()}
