@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ArrowRight, Calendar, Phone } from 'lucide-react';
+import { Menu, X, Calendar, Phone } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { BrandLogo } from './BrandLogo';
 import { SocialLinks } from './SocialLinks';
@@ -96,15 +96,6 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
               <Phone className="w-4 h-4" />
               {siteConfig.contact.phone}
             </a>
-            <button
-              onClick={onOpenBooking}
-              type="button"
-              className="header-booking inline-flex items-center gap-2 px-3 sm:px-5 py-2.5 text-xs font-semibold uppercase text-white bg-rose-button hover:bg-rose-accent active:bg-rose-plum rounded-full shadow-xs shadow-rose-button/25 transition-all hover:shadow-md cursor-pointer whitespace-nowrap"
-            >
-              <span>Book Consultation</span>
-              <ArrowRight className="w-3.5 h-3.5" />
-            </button>
-
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="ml-auto p-2 text-text-charcoal lg:hidden hover:text-rose-plum transition-colors cursor-pointer"
