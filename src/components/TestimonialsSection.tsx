@@ -8,21 +8,18 @@ export const TestimonialsSection: React.FC = () => {
       treatment: "Facial Aesthetics Consultation",
       previewQuote: "Client reviews and feedback quotes will appear here once approved by Katie Osborne.",
       source: "Verified Consultation Feedback",
-      dateLabel: "Pending Client Review",
       initials: "K.O. Client"
     },
     {
       treatment: "Skin Quality & Biorevitalisation",
       previewQuote: "Client reviews and feedback quotes will appear here once approved by Katie Osborne.",
       source: "Google / Clinic Feedback",
-      dateLabel: "Pending Client Review",
       initials: "Aesthetics Patient"
     },
     {
       treatment: "Bespoke Treatment Planning",
       previewQuote: "Client reviews and feedback quotes will appear here once approved by Katie Osborne.",
       source: "Verified Clinic Feedback",
-      dateLabel: "Pending Client Review",
       initials: "Southsea Client"
     }
   ];
@@ -91,7 +88,6 @@ export const TestimonialsSection: React.FC = () => {
                   </div>
                 </div>
 
-                <span className="text-[10px] italic">{item.dateLabel}</span>
               </div>
             </div>
           ))}
