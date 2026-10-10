@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { ArrowRight, Sparkles, Check, Package, AlertCircle } from 'lucide-react';
-import { obagiSkincarePreview, skincareHeroData, SkincareProduct } from '../data/skincare';
+import React from 'react';
+import { ArrowRight, Sparkles, Check } from 'lucide-react';
+import { obagiSkincarePreview, skincareHeroData } from '../data/skincare';
 import { DecorativeBackground } from './DecorativeBackground';
 
 interface SkincareSectionProps {
@@ -8,8 +8,6 @@ interface SkincareSectionProps {
 }
 
 export const SkincareSection: React.FC<SkincareSectionProps> = ({ onOpenEnquiry }) => {
-  const [selectedProduct, setSelectedProduct] = useState<SkincareProduct | null>(null);
-
   return (
     <section 
       id="skincare"
@@ -40,7 +38,7 @@ export const SkincareSection: React.FC<SkincareSectionProps> = ({ onOpenEnquiry 
             </div>
 
             <p className="text-base sm:text-lg text-text-muted font-light leading-relaxed">
-              True to our clinic philosophy of comprehensive <em>Aesthetics &amp; Skin Care</em>, we're exploring a new dimension in professional dermal health at Majestic Aesthetics, with the possibility of introducing a carefully selected Obagi Medical range to complement clinical appointments.
+              {skincareHeroData.description}
             </p>
 
             {/* Status Indicator */}
@@ -88,7 +86,7 @@ export const SkincareSection: React.FC<SkincareSectionProps> = ({ onOpenEnquiry 
                   A considered skincare collection
                 </span>
                 <p className="text-xs text-text-charcoal mt-0.5 font-medium">
-                  Proposed range, subject to Katie's approval and confirmed availability.
+                  Future interest options, subject to Katie's approval and confirmed availability.
                 </p>
               </div>
             </div>
@@ -104,11 +102,11 @@ export const SkincareSection: React.FC<SkincareSectionProps> = ({ onOpenEnquiry 
                 The Skincare Edit
               </span>
               <h3 className="font-serif text-2xl text-text-charcoal">
-                Proposed Skincare Catalog Preview
+                Future Skincare Interest Options
               </h3>
             </div>
             <span className="text-xs text-text-muted italic">
-              * Demonstration layout — pricing & availability to be configured upon launch
+              * Interest-only preview - products, pricing and availability are not currently live
             </span>
           </div>
 

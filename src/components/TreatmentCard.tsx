@@ -12,11 +12,14 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
   const [imgError, setImgError] = useState(false);
 
   return (
-    <article 
-      className="treatment-card group bg-white overflow-hidden border border-border-blush transition-all duration-300 flex flex-col hover:-translate-y-1"
+    <button
+      type="button"
+      onClick={() => onSelect(treatment)}
+      aria-label={`Explore ${treatment.title}`}
+      className="treatment-card group text-left w-full min-w-0 bg-white overflow-hidden border border-border-blush transition-all duration-300 flex flex-col cursor-pointer hover:-translate-y-2 focus-visible:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-button motion-reduce:transform-none"
     >
       {/* Edge-to-edge photography container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-blush-pale">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-blush-pale shrink-0">
         {!imgError ? (
           <img
             src={treatment.image}
@@ -39,30 +42,30 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
       </div>
 
       {/* Card Content */}
-      <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between bg-white relative">
+      <div className="p-5 xl:p-6 flex flex-col flex-1 justify-between bg-white relative w-full">
         <div className="absolute top-0 right-8 w-20 h-1 bg-gradient-to-r from-transparent via-gold-metallic/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         <div>
-          <span className="text-[11px] font-semibold tracking-widest text-rose-accent uppercase">
+          <span className="block min-h-8 text-[10px] leading-4 font-semibold text-rose-accent uppercase">
             {treatment.category}
           </span>
 
-          <h3 className="font-serif text-2xl text-text-charcoal font-medium mt-1.5 mb-3 group-hover:text-rose-plum transition-colors">
+          <h3 className="font-serif text-[23px] leading-tight lg:min-h-[87px] xl:min-h-[58px] text-text-charcoal font-medium mt-1.5 mb-3 group-hover:text-rose-plum group-focus-visible:text-rose-plum transition-colors">
             {treatment.title}
           </h3>
 
-          <p className="text-sm text-text-muted leading-relaxed line-clamp-3">
+          <p className="text-sm text-text-muted leading-relaxed">
             {treatment.shortDescription}
           </p>
         </div>
 
-        <div className="pt-6 mt-4 border-t border-border-blush/60 flex items-center justify-between">
-          <button type="button" onClick={() => onSelect(treatment)} className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase text-rose-button hover:text-rose-plum transition-colors cursor-pointer">
+        <div className="pt-4 mt-5 border-t border-border-blush/60 flex flex-col items-start gap-2">
+          <span className="inline-flex items-center justify-between w-full gap-2 text-[11px] font-semibold uppercase text-rose-button group-hover:text-rose-plum transition-colors">
             Explore Treatment
-            <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
-          </button>
+            <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none" />
+          </span>
           <span className="text-[11px] text-text-muted">In-person assessment</span>
         </div>
       </div>
-    </article>
+    </button>
   );
 };

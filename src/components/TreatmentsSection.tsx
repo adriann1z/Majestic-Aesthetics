@@ -18,7 +18,7 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
       className="py-16 sm:py-24 bg-blush-white border-b border-border-blush"
     >
       <DecorativeBackground variant="botanical" />
-      <div className="section-inner max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+      <div className="section-inner treatment-section-inner mx-auto px-5 sm:px-8 lg:px-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-3">
@@ -39,8 +39,8 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
           </p>
         </div>
 
-        {/* 3-Column Treatment Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Four treatments share one row on desktop. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 xl:gap-6 items-stretch">
           {treatmentsData.map((treatment) => (
             <TreatmentCard
               key={treatment.id}

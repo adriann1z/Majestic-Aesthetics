@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ArrowRight, Calendar } from 'lucide-react';
+import { Menu, X, ArrowRight, Calendar, Phone } from 'lucide-react';
+import { siteConfig } from '../data/siteConfig';
 import { BrandLogo } from './BrandLogo';
 import { SocialLinks } from './SocialLinks';
 
@@ -91,6 +92,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
 
           {/* Zone 3: Primary Action CTA & Mobile Hamburger */}
           <div className="header-actions order-2 flex w-full sm:w-auto sm:ml-auto shrink-0 items-center gap-2 sm:gap-3">
+            <a href={siteConfig.contact.phoneHref} className="header-phone hidden lg:inline-flex items-center gap-2 text-sm font-semibold text-rose-plum hover:text-rose-accent whitespace-nowrap">
+              <Phone className="w-4 h-4" />
+              {siteConfig.contact.phone}
+            </a>
             <button
               onClick={onOpenBooking}
               type="button"

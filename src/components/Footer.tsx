@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, MapPin, Heart, Shield, Sparkles } from 'lucide-react';
+import { Mail, MapPin, Heart, Shield, Sparkles, Phone } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { BrandLogo } from './BrandLogo';
 import { SocialLinks } from './SocialLinks';
@@ -128,6 +128,12 @@ export const Footer: React.FC<FooterProps> = ({
             </h4>
             
             <div className="space-y-3 text-sm text-blush-pale/90">
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-border-blush shrink-0" />
+                <a href={siteConfig.contact.phoneHref} className="py-1 font-semibold hover:text-white underline underline-offset-2 transition-colors">
+                  {siteConfig.contact.phone}
+                </a>
+              </div>
               <div className="flex items-start gap-2.5">
                 <Mail className="w-4 h-4 text-border-blush shrink-0 mt-0.5" />
                 <a

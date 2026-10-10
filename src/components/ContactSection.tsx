@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Mail, MapPin, Calendar, Clock, Send, CheckCircle2, AlertCircle, ArrowRight } from 'lucide-react';
+import React, { useEffect, useState } from 'react';
+import { Mail, MapPin, Clock, Send, CheckCircle2, AlertCircle, ArrowRight, Phone } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { DecorativeBackground } from './DecorativeBackground';
 import { SocialLinks } from './SocialLinks';
 
 interface ContactSectionProps {
-  onOpenBooking: () => void;
+  enquiryCategory: string;
   onOpenChecklist: () => void;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
-  onOpenBooking,
+  enquiryCategory,
   onOpenChecklist
 }) => {
   const [formData, setFormData] = useState({
@@ -25,6 +25,10 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+
+  useEffect(() => {
+    setFormData(previous => ({ ...previous, category: enquiryCategory }));
+  }, [enquiryCategory]);
 
   const validate = () => {
     const errs: Record<string, string> = {};
@@ -96,6 +100,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
               <div className="space-y-5">
                 <div className="flex items-start gap-4">
+                  <div className="p-2.5 rounded-lg bg-blush-white border border-border-blush text-rose-button shrink-0 mt-0.5">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-xs text-text-muted font-medium uppercase block">Call the Clinic</span>
+                    <a href={siteConfig.contact.phoneHref} className="inline-block py-1 text-xl font-semibold text-rose-plum hover:text-rose-accent transition-colors">
+                      {siteConfig.contact.phone}
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
                   <div className="p-2.5 rounded-xl bg-blush-white border border-border-blush text-rose-accent shrink-0 mt-0.5">
                     <Mail className="w-5 h-5 text-rose-button" />
                   </div>
@@ -157,31 +172,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
               </div>
 
-              {/* Direct Booking Action */}
-              <div className="pt-4 border-t border-border-blush space-y-3">
-                <button
-                  onClick={onOpenBooking}
-                  type="button"
-                  className="w-full flex items-center justify-center gap-2 py-3 px-5 text-xs font-semibold uppercase tracking-wider text-white bg-rose-button hover:bg-rose-accent rounded-full shadow-xs transition-colors cursor-pointer"
-                >
-                  <Calendar className="w-4 h-4" />
-                  <span>Request Consultation Slot</span>
-                </button>
-
-                <a
-                  href={`mailto:${siteConfig.contact.email}?subject=Consultation%20Enquiry%20-%20Majestic%20Aesthetics`}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-5 text-xs font-medium text-text-charcoal bg-blush-white hover:bg-white border border-border-blush rounded-full transition-colors text-center"
-                >
-                  <span>Email the Clinic Directly →</span>
-                </a>
-              </div>
             </div>
 
           </div>
 
           {/* Right Column: Contact & Enquiry Form (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="contact-form bg-white p-6 sm:p-8 border border-border-blush">
+            <div id="consultation-form" tabIndex={-1} aria-label="Consultation enquiry form" className="contact-form scroll-mt-72 bg-white p-6 sm:p-8 border border-border-blush focus-visible:outline-2 focus-visible:outline-rose-button">
               
               <div className="mb-6">
                 <h3 className="font-serif text-2xl text-text-charcoal">
@@ -315,6 +312,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         <option value="Dermal Fillers">Dermal Fillers (Facial Balance)</option>
                         <option value="Anti-Wrinkle Consultations">Anti-Wrinkle Assessment</option>
                         <option value="Skin Boosters & Polynucleotides">Skin Boosters & Polynucleotides</option>
+                        <option value="SkinPen Microneedling">SkinPen Microneedling</option>
                         <option value="Obagi Skincare Enquiry">Obagi Skincare Range Enquiry</option>
                       </select>
                     </div>
@@ -365,7 +363,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       type="submit"
                       className="w-full flex items-center justify-center gap-2 py-3.5 px-6 text-xs font-semibold uppercase tracking-wider text-white bg-rose-button hover:bg-rose-accent active:bg-rose-plum disabled:opacity-50 rounded-full shadow-xs transition-colors cursor-pointer"
                     >
-                      <span>Prepare Email Enquiry</span>
+                      <span>Send Email Enquiry</span>
                       <Send className="w-3.5 h-3.5" />
                     </button>
                     <p className="text-[11px] text-center text-text-muted mt-2">

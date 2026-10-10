@@ -55,11 +55,11 @@ export const obagiSkincarePreview: SkincareProduct[] = [
 ];
 
 export const skincareHeroData = {
-  eyebrow: "A NEW CHAPTER IN SKINCARE",
+  eyebrow: "FUTURE SKINCARE INTEREST",
   heading: "Beautiful skin goes beyond the treatment room.",
-  description: "We're exploring a new approach to professional skincare at Majestic Aesthetics, with the possibility of introducing a carefully selected Obagi range to complement personalised skin consultations.",
-  statusLabel: "Proposed addition — coming soon, subject to confirmation",
+  description: "We're collecting skincare interest for the future at Majestic Aesthetics, with the possibility of introducing carefully selected professional homecare options to complement personalised skin consultations.",
+  statusLabel: "Future interest only - not yet a live treatment or retail service",
   image: skincareImage,
   imageAlt: "Luxury medical-grade skincare formulation droppers and creams on pale blush marble",
-  disclaimer: "Please note: Majestic Aesthetics is exploring the introduction of Obagi Medical skincare. Products and pricing will be finalized once authorized stocking arrangements are verified by Katie Osborne."
+  disclaimer: "Please note: skincare products, pricing and stockist arrangements are not currently confirmed. You can register interest so Katie can shape future options around client demand."
 };

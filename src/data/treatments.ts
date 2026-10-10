@@ -154,5 +154,51 @@ export const treatmentsData: Treatment[] = [
       }
     ],
     isConfirmed: true
+  },
+  {
+    id: "skinpen-microneedling",
+    slug: "skinpen-microneedling",
+    title: "SkinPen Microneedling",
+    category: "Collagen Induction & Texture Renewal",
+    shortDescription: "FDA-cleared microneedling designed to support natural collagen production and improve the look of acne scarring, texture and neck lines.",
+    image: `${import.meta.env.BASE_URL}images/treatment-before-after.webp`,
+    imageAlt: "Majestic Aesthetics skin treatment before-and-after comparison",
+    imageFit: 'contain',
+    fullOverview: "SkinPen is a professional microneedling treatment designed to create controlled micro-channels in the skin, encouraging the body's natural wound-healing response and collagen production. It can be considered for improving the appearance of facial acne scars, refining uneven texture, and supporting skin quality on the face and neck without heat, lasers or chemical resurfacing.",
+    suitability: [
+      "Clients concerned with the appearance of facial acne scarring or uneven skin texture",
+      "Those looking to support collagen production and a smoother-looking skin surface",
+      "Individuals seeking a non-heat-based skin rejuvenation option with minimal downtime",
+      "Suitability is confirmed after a face-to-face skin consultation and medical history review"
+    ],
+    consultationSteps: [
+      "Skin assessment, medical history review and discussion of your texture or scarring concerns",
+      "Explanation of the SkinPen process, expected sensations, downtime and aftercare",
+      "Preparation of the skin with thorough cleansing and a comfort-led treatment approach",
+      "A personalised course plan if a series of sessions is clinically appropriate"
+    ],
+    appointmentInformation: "SkinPen appointments typically allow around 45 to 60 minutes, including consultation, skin preparation and post-treatment care guidance. A course may be recommended depending on your skin goals.",
+    aftercareGuidelines: [
+      "Avoid direct sun exposure for at least 24 hours before and 72 hours after treatment",
+      "Use only the recommended gentle post-treatment skincare while the skin is settling",
+      "Avoid active exfoliants, retinoids, saunas, steam rooms and strenuous exercise until advised",
+      "Apply broad-spectrum SPF daily once appropriate as part of your recovery routine"
+    ],
+    risksAndLimitations: [
+      "Temporary redness, warmth, tightness, dryness or mild swelling can occur after treatment",
+      "Microneedling is not suitable for all skin conditions, infections, active acne flares or compromised skin barriers",
+      "Results vary between individuals and a course of treatments may be required for visible improvement"
+    ],
+    faqs: [
+      {
+        question: "What is SkinPen used for?",
+        answer: "SkinPen is used by trained providers to stimulate natural collagen production and improve the appearance of concerns such as facial acne scars, uneven texture and neck wrinkles."
+      },
+      {
+        question: "Is there downtime after SkinPen?",
+        answer: "Downtime is usually minimal, but the skin can look flushed and feel warm or tight after treatment. You will be given clear aftercare, including sun avoidance around your appointment."
+      }
+    ],
+    isConfirmed: true
   }
 ];

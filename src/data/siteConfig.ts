@@ -21,7 +21,8 @@ export interface ClinicInfo {
   };
   contact: {
     email: string;
-    phonePlaceholder: string;
+    phone: string;
+    phoneHref: string;
     existingWebsite: string;
     bookingProviderUrl?: string; // If confirmed
   };
@@ -64,7 +65,8 @@ Her aim is to help clients make informed, confident decisions about their aesthe
   },
   contact: {
     email: "info@majesticaesthetics.co.uk",
-    phonePlaceholder: "Telephone number to be confirmed upon review",
+    phone: "023 9281 6845",
+    phoneHref: "tel:+442392816845",
     existingWebsite: "https://www.majesticaesthetics.co.uk/"
   },
   obagiExpansion: {
@@ -121,10 +123,10 @@ export const clientReviewItems = [
   },
   {
     id: "phone",
-    item: "Clinic Telephone & Booking Provider",
-    currentConceptValue: "Email only (info@majesticaesthetics.co.uk)",
-    status: "Placeholder active",
-    actionRequired: "Provide primary clinic telephone number and direct booking software link if preferred (e.g. Fresha/Glowday/Aesthetic Nurse Software)."
+    item: "Clinic Telephone",
+    currentConceptValue: "023 9281 6845",
+    status: "Owner supplied",
+    actionRequired: "Telephone number supplied and added to the site's contact links."
   },
   {
     id: "obagi",

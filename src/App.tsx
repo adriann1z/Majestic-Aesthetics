@@ -13,25 +13,33 @@ import { FAQSection } from './components/FAQSection';
 import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { TreatmentDetailModal } from './components/TreatmentDetailModal';
-import { BookingModal } from './components/BookingModal';
 import { ReviewChecklistModal } from './components/ReviewChecklistModal';
 import { PrivacyModal } from './components/PrivacyModal';
 import { Treatment } from './data/treatments';
 import { SectionReveal } from './components/SectionReveal';
 import { FloralEdges } from './components/FloralEdges';
+import { Phone } from 'lucide-react';
+import { siteConfig } from './data/siteConfig';
 
 export default function App() {
   const [selectedTreatment, setSelectedTreatment] = useState<Treatment | null>(null);
-  const [bookingModalOpen, setBookingModalOpen] = useState(false);
-  const [bookingTreatmentFocus, setBookingTreatmentFocus] = useState<string>("General Facial Aesthetics Consultation");
+  const [enquiryCategory, setEnquiryCategory] = useState('General Consultation');
   const [reviewChecklistOpen, setReviewChecklistOpen] = useState(false);
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
 
   const handleOpenBooking = (defaultFocus?: string) => {
-    if (defaultFocus) {
-      setBookingTreatmentFocus(defaultFocus);
-    }
-    setBookingModalOpen(true);
+    const treatment = ['Dermal Fillers', 'Anti-Wrinkle Consultations', 'Skin Boosters & Polynucleotides', 'SkinPen Microneedling'];
+    setEnquiryCategory(defaultFocus && treatment.includes(defaultFocus)
+      ? defaultFocus
+      : defaultFocus && defaultFocus !== 'Consultation with Katie Osborne'
+        ? 'Obagi Skincare Enquiry'
+        : 'General Consultation');
+    setSelectedTreatment(null);
+    window.requestAnimationFrame(() => {
+      const form = document.getElementById('consultation-form');
+      form?.focus({ preventScroll: true });
+      form?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    });
   };
 
   const handleNavigate = (sectionId: string) => {
@@ -99,7 +107,7 @@ export default function App() {
 
         {/* 12. Booking & Contact */}
         <ContactSection
-          onOpenBooking={() => handleOpenBooking()}
+          enquiryCategory={enquiryCategory}
           onOpenChecklist={() => setReviewChecklistOpen(true)}
         />
 
@@ -114,16 +122,17 @@ export default function App() {
       />
 
       {/* Modals & Drawers */}
+      <div className="mobile-call-bar lg:hidden">
+        <a href={siteConfig.contact.phoneHref} aria-label={`Call Majestic Aesthetics on ${siteConfig.contact.phone}`} className="flex min-h-12 items-center justify-center gap-3 rounded-lg bg-rose-button px-4 py-3 text-white font-semibold shadow-sm hover:bg-rose-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-plum">
+          <Phone className="w-5 h-5 shrink-0" />
+          <span>Call Now</span>
+          <span className="text-sm font-normal">{siteConfig.contact.phone}</span>
+        </a>
+      </div>
       <TreatmentDetailModal
         treatment={selectedTreatment}
         onClose={() => setSelectedTreatment(null)}
         onBookTreatment={(treatmentName) => handleOpenBooking(treatmentName)}
-      />
-
-      <BookingModal
-        isOpen={bookingModalOpen}
-        onClose={() => setBookingModalOpen(false)}
-        defaultTreatment={bookingTreatmentFocus}
       />
 
       <ReviewChecklistModal
