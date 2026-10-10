@@ -77,18 +77,10 @@ export const SkincareSection: React.FC<SkincareSectionProps> = ({ onOpenEnquiry 
               <img
                 src={skincareHeroData.image}
                 alt={skincareHeroData.imageAlt}
-                className="w-full h-[400px] sm:h-[480px] object-cover object-center"
+                className="w-full aspect-square object-contain object-center"
                 loading="lazy"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-xs p-4 rounded-2xl border border-border-blush shadow-xs">
-                <span className="text-[11px] font-semibold tracking-widest text-rose-accent uppercase block">
-                  A considered skincare collection
-                </span>
-                <p className="text-xs text-text-charcoal mt-0.5 font-medium">
-                  Future interest options, subject to Katie's approval and confirmed availability.
-                </p>
-              </div>
             </div>
           </div>
 

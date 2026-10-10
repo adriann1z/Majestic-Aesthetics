@@ -1,4 +1,3 @@
-import skincareImage from '../assets/images/obagi_skincare_bottles_1791474733199.webp';
 
 export interface SkincareProduct {
   id: string;
@@ -55,11 +54,11 @@ export const obagiSkincarePreview: SkincareProduct[] = [
 ];
 
 export const skincareHeroData = {
-  eyebrow: "FUTURE SKINCARE INTEREST",
+  eyebrow: "OBAGI SKINCARE",
   heading: "Beautiful skin goes beyond the treatment room.",
-  description: "We're collecting skincare interest for the future at Majestic Aesthetics, with the possibility of introducing carefully selected professional homecare options to complement personalised skin consultations.",
+  description: "Explore Obagi skincare as part of a personalised homecare plan. From cleansing and moisturising to targeted serums and daily sun protection, discuss a routine with Katie that fits your skin concerns, lifestyle and existing treatments.",
   statusLabel: "Future interest only - not yet a live treatment or retail service",
-  image: skincareImage,
-  imageAlt: "Luxury medical-grade skincare formulation droppers and creams on pale blush marble",
+  image: `${import.meta.env.BASE_URL}images/skincare-plans.png`,
+  imageAlt: "Obagi Medical skincare collection for personalised skincare plans",
   disclaimer: "Please note: skincare products, pricing and stockist arrangements are not currently confirmed. You can register interest so Katie can shape future options around client demand."
 };
