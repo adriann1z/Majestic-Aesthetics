@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
 import { faqList } from '../data/faq';
 import { DecorativeBackground } from './DecorativeBackground';
+import { siteConfig } from '../data/siteConfig';
 
 export const FAQSection: React.FC = () => {
   const [openId, setOpenId] = useState<string | null>("faq-1");
@@ -74,7 +75,7 @@ export const FAQSection: React.FC = () => {
         {/* Additional support note */}
         <div className="mt-8 text-center text-xs text-text-muted">
           Have a specific clinical inquiry or medical question?{' '}
-          <a href="mailto:info@majesticaesthetics.co.uk" className="text-rose-accent hover:underline font-medium">
+          <a href={`mailto:${siteConfig.contact.email}`} className="text-rose-accent hover:underline font-medium">
             Contact Katie directly via email
           </a>
         </div>

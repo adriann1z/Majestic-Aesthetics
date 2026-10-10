@@ -96,6 +96,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
               <Phone className="w-4 h-4" />
               {siteConfig.contact.phone}
             </a>
+            <div className="hidden lg:block w-full text-right text-xs leading-relaxed text-text-muted">
+              <p>{siteConfig.location.addressLine}</p>
+              <p>{siteConfig.location.town}, {siteConfig.location.city}, {siteConfig.location.postcode}</p>
+            </div>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="ml-auto p-2 text-text-charcoal lg:hidden hover:text-rose-plum transition-colors cursor-pointer"
@@ -148,10 +152,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
               </button>
 
               <a
-                href="mailto:info@majesticaesthetics.co.uk"
+                href={`mailto:${siteConfig.contact.email}`}
                 className="text-center text-xs text-text-muted hover:text-rose-plum py-1"
               >
-                info@majesticaesthetics.co.uk
+                {siteConfig.contact.email}
               </a>
             </div>
           </div>

@@ -1,3 +1,5 @@
+import { siteConfig } from './siteConfig';
+
 export interface FAQItem {
   id: string;
   question: string;
@@ -9,7 +11,7 @@ export const faqList: FAQItem[] = [
   {
     id: "faq-1",
     question: "How do I book a consultation?",
-    answer: "You can send an enquiry directly via our online consultation form, or email Katie at info@majesticaesthetics.co.uk. Once approved by the clinic, direct online calendar scheduling may also be integrated.",
+    answer: `You can send an enquiry directly via our online consultation form, or email Katie at ${siteConfig.contact.email}. Once approved by the clinic, direct online calendar scheduling may also be integrated.`,
     category: "booking"
   },
   {

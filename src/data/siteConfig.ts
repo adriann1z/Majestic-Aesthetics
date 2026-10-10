@@ -61,10 +61,10 @@ Her aim is to help clients make informed, confident decisions about their aesthe
     country: "England",
     addressLine: "166 Eastney Road",
     postcode: "PO4 8DY",
-    isAddressConfirmed: false // Subject to Katie's confirmation
+    isAddressConfirmed: true
   },
   contact: {
-    email: "info@majesticaesthetics.co.uk",
+    email: "info@majesticaesthetics.uk",
     phone: "023 9281 6845",
     phoneHref: "tel:+442392816845",
     existingWebsite: "https://www.majesticaesthetics.co.uk/"
@@ -111,8 +111,8 @@ export const clientReviewItems = [
     id: "address",
     item: "Clinic Address",
     currentConceptValue: "166 Eastney Road, Southsea, Portsmouth, PO4 8DY",
-    status: "Pending verification",
-    actionRequired: "Confirm if this is the active treatment premises or if consultations are hosted at an alternative Portsmouth location."
+    status: "Owner confirmed",
+    actionRequired: "Clinic address confirmed for display on the website."
   },
   {
     id: "qualifications",

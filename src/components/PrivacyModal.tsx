@@ -1,6 +1,7 @@
 import React from 'react';
 import { X, ShieldCheck, Lock, FileText, AlertCircle } from 'lucide-react';
 import { useDialogFocus } from '../hooks/useDialogFocus';
+import { siteConfig } from '../data/siteConfig';
 
 interface PrivacyModalProps {
   isOpen: boolean;
@@ -87,8 +88,8 @@ export const PrivacyModal: React.FC<PrivacyModalProps> = ({ isOpen, onClose }) =
             <h4 className="font-serif text-base text-text-charcoal font-medium">5. Your UK GDPR Rights</h4>
             <p>
               Under UK GDPR, you have the right to request access to, rectification of, or erasure of your personal contact data at any time by emailing{' '}
-              <a href="mailto:info@majesticaesthetics.co.uk" className="text-rose-button underline">
-                info@majesticaesthetics.co.uk
+              <a href={`mailto:${siteConfig.contact.email}`} className="text-rose-button underline">
+                {siteConfig.contact.email}
               </a>.
             </p>
           </section>

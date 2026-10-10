@@ -6,12 +6,10 @@ import { SocialLinks } from './SocialLinks';
 
 interface ContactSectionProps {
   enquiryCategory: string;
-  onOpenChecklist: () => void;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({
-  enquiryCategory,
-  onOpenChecklist
+  enquiryCategory
 }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -144,13 +142,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     <p className="text-xs text-text-muted">
                       {siteConfig.location.town}, {siteConfig.location.city}, {siteConfig.location.postcode}
                     </p>
-                    <button
-                      onClick={onOpenChecklist}
-                      type="button"
-                      className="text-[11px] text-rose-accent hover:underline mt-1 block cursor-pointer"
-                    >
-                      * Address verification pending Katie's confirmation
-                    </button>
                   </div>
                 </div>
 

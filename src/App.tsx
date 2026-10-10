@@ -115,7 +115,6 @@ export default function App() {
         {/* 12. Booking & Contact */}
         <ContactSection
           enquiryCategory={enquiryCategory}
-          onOpenChecklist={() => setReviewChecklistOpen(true)}
         />
 
       </main>

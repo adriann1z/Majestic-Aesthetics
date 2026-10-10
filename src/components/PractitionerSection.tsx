@@ -105,7 +105,7 @@ export const PractitionerSection: React.FC<PractitionerSectionProps> = ({
               </button>
 
               <a
-                href="mailto:info@majesticaesthetics.co.uk"
+                href={`mailto:${siteConfig.contact.email}`}
                 className="inline-flex items-center gap-2 px-5 py-3.5 text-xs sm:text-sm font-medium text-rose-plum hover:text-text-charcoal underline underline-offset-4"
               >
                 <span>Direct Clinical Enquiry</span>
