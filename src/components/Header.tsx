@@ -99,17 +99,11 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
             <button
               onClick={onOpenBooking}
               type="button"
-              className="header-booking hidden lg:inline-flex items-center gap-2 px-3 sm:px-5 py-2.5 text-xs font-semibold uppercase text-white bg-rose-button hover:bg-rose-accent active:bg-rose-plum rounded-full shadow-xs shadow-rose-button/25 transition-all hover:shadow-md cursor-pointer whitespace-nowrap"
+              className="header-booking inline-flex items-center gap-2 px-3 sm:px-5 py-2.5 text-xs font-semibold uppercase text-white bg-rose-button hover:bg-rose-accent active:bg-rose-plum rounded-full shadow-xs shadow-rose-button/25 transition-all hover:shadow-md cursor-pointer whitespace-nowrap"
             >
               <span>Book Consultation</span>
               <ArrowRight className="w-3.5 h-3.5" />
             </button>
-
-            <a href={siteConfig.contact.phoneHref} className="lg:hidden inline-flex min-h-11 items-center justify-center gap-2 rounded-full bg-rose-button px-5 py-3 text-sm font-semibold text-white hover:bg-rose-accent">
-              <Phone className="w-4 h-4 shrink-0" />
-              <span>Call Now</span>
-              <span className="text-xs">{siteConfig.contact.phone}</span>
-            </a>
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
