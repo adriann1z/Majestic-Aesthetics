@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Phone } from 'lucide-react';
+import { siteConfig } from '../data/siteConfig';
 import heroPortrait from '../assets/images/regenerated_image_1791482961876.webp';
 
 interface HeroProps {
@@ -48,6 +49,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
 
             {/* CTA Group */}
             <div className="hero-buttons flex flex-wrap items-center gap-4 pt-2">
+              <a href={siteConfig.contact.phoneHref} className="lg:hidden inline-flex w-full min-h-12 items-center justify-center gap-3 rounded-full bg-rose-button px-5 py-3.5 text-sm font-semibold text-white shadow-md hover:bg-rose-accent">
+                <Phone className="w-5 h-5 shrink-0" />
+                <span>Call Now</span>
+                <span>{siteConfig.contact.phone}</span>
+              </a>
               <button
                 onClick={onOpenBooking}
                 type="button"

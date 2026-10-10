@@ -122,7 +122,7 @@ export default function App() {
       />
 
       {/* Modals & Drawers */}
-      <div className="mobile-call-bar lg:hidden">
+      <div className="mobile-call-bar">
         <a href={siteConfig.contact.phoneHref} aria-label={`Call Majestic Aesthetics on ${siteConfig.contact.phone}`} className="flex min-h-12 items-center justify-center gap-3 rounded-lg bg-rose-button px-4 py-3 text-white font-semibold shadow-sm hover:bg-rose-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-rose-plum">
           <Phone className="w-5 h-5 shrink-0" />
           <span>Call Now</span>
