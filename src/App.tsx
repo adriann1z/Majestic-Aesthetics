@@ -17,7 +17,7 @@ import { PrivacyModal } from './components/PrivacyModal';
 import { Treatment } from './data/treatments';
 import { SectionReveal } from './components/SectionReveal';
 import { FloralEdges } from './components/FloralEdges';
-import { Phone } from 'lucide-react';
+import { Phone, ArrowDown } from 'lucide-react';
 import { siteConfig } from './data/siteConfig';
 
 export default function App() {
@@ -71,6 +71,17 @@ export default function App() {
 
         {/* 4. Clinical Trust Strip */}
         <TrustStrip />
+        <div className="relative z-10 flex justify-center bg-blush-white py-2">
+          <button
+            type="button"
+            onClick={() => handleNavigate('treatments')}
+            aria-label="Scroll down to treatments"
+            title="Explore treatments"
+            className="flex h-11 w-11 items-center justify-center rounded-full text-rose-button hover:text-rose-plum hover:bg-blush-pale transition-colors cursor-pointer"
+          >
+            <ArrowDown aria-hidden="true" className="h-6 w-6 animate-bounce motion-reduce:animate-none" />
+          </button>
+        </div>
 
         {/* 5. Our Treatments */}
         <TreatmentsSection

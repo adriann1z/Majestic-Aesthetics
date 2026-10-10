@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, ArrowDown, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles } from 'lucide-react';
 import heroPortrait from '../assets/images/regenerated_image_1791482961876.webp';
 
 interface HeroProps {
@@ -117,15 +117,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
 
         </div>
       </div>
-      <button
-        type="button"
-        onClick={onExploreTreatments}
-        aria-label="Scroll down to treatments"
-        title="Explore treatments"
-        className="absolute bottom-1 left-1/2 -translate-x-1/2 z-10 flex h-11 w-11 items-center justify-center rounded-full text-rose-button hover:text-rose-plum hover:bg-white/60 transition-colors cursor-pointer"
-      >
-        <ArrowDown aria-hidden="true" className="h-6 w-6 animate-bounce motion-reduce:animate-none" />
-      </button>
     </section>
   );
 };
