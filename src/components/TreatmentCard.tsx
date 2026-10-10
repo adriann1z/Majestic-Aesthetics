@@ -19,7 +19,7 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
       className="treatment-card group text-left w-full min-w-0 bg-white overflow-hidden border border-border-blush transition-all duration-300 flex flex-col cursor-pointer hover:-translate-y-2 focus-visible:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-button motion-reduce:transform-none"
     >
       {/* Edge-to-edge photography container */}
-      <div className="relative aspect-[4/3] w-full overflow-hidden bg-blush-pale shrink-0">
+      <div className="relative aspect-square w-full overflow-hidden bg-blush-pale shrink-0">
         {!imgError ? (
           <img
             src={treatment.image}
@@ -38,7 +38,7 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
           </div>
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+        {treatment.imageFit !== 'contain' && <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />}
       </div>
 
       {/* Card Content */}

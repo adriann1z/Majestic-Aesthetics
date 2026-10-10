@@ -39,14 +39,18 @@ export const TreatmentsSection: React.FC<TreatmentsSectionProps> = ({
           </p>
         </div>
 
-        {/* Four treatments share one row on desktop. */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 xl:gap-6 items-stretch">
+        {/* Each category opens its own treatment details. */}
+        <div className="flex flex-wrap justify-center gap-5 xl:gap-6 items-stretch">
           {treatmentsData.map((treatment) => (
-            <TreatmentCard
+            <div
               key={treatment.id}
-              treatment={treatment}
-              onSelect={onSelectTreatment}
-            />
+              className="flex min-w-0 w-full sm:w-[calc((100%-1.25rem)/2)] lg:w-[calc((100%-3.75rem)/4)] xl:w-[calc((100%-4.5rem)/4)]"
+            >
+              <TreatmentCard
+                treatment={treatment}
+                onSelect={onSelectTreatment}
+              />
+            </div>
           ))}
         </div>
 

@@ -25,8 +25,8 @@ export const treatmentsData: Treatment[] = [
     title: "Dermal Fillers",
     category: "Facial Harmony & Balance",
     shortDescription: "Considered treatments designed to enhance facial harmony, balance and subtle structural definition.",
-    image: `${import.meta.env.BASE_URL}images/dermal-fillers-before-after.webp`,
-    imageAlt: "Majestic Aesthetics lip filler before-and-after comparison",
+    image: `${import.meta.env.BASE_URL}images/dermal-fillers.png`,
+    imageAlt: "Dermal fillers treatment",
     imageFit: 'contain',
     fullOverview: "Dermal fillers are hyaluronic acid-based injectable treatments thoughtfully administered to restore volume loss, soften deeper facial contours, and support facial architecture. At Majestic Aesthetics, our philosophy prioritises understated elegance—enhancing your existing features rather than changing the character of your face.",
     suitability: [
@@ -71,8 +71,8 @@ export const treatmentsData: Treatment[] = [
     title: "Anti-Wrinkle Consultations",
     category: "Expression Line Softening",
     shortDescription: "Personalised consultations to explore suitable options for softening the appearance of expression lines.",
-    image: `${import.meta.env.BASE_URL}images/treatment-before-after.webp`,
-    imageAlt: "Majestic Aesthetics before-and-after forehead comparison, labelled Anti Ageing",
+    image: `${import.meta.env.BASE_URL}images/anti-wrinkle.png`,
+    imageAlt: "Anti-wrinkle treatment consultation",
     imageFit: 'contain',
     fullOverview: "In accordance with UK regulatory standards, prescription-only treatments require an in-person clinical assessment by an Independent Prescriber. During your private consultation at Majestic Aesthetics, Katie will assess dynamic and static facial movement, discuss your skin history, and determine whether medical muscle-relaxing treatments are appropriate for your concerns.",
     suitability: [
@@ -112,13 +112,13 @@ export const treatmentsData: Treatment[] = [
     isConfirmed: true
   },
   {
-    id: "skin-boosters-polynucleotides",
-    slug: "skin-boosters-polynucleotides",
-    title: "Skin Boosters & Polynucleotides",
+    id: "polynucleotides",
+    slug: "polynucleotides",
+    title: "Polynucleotides",
     category: "Skin Quality & Biorevitalisation",
     shortDescription: "Explore personalised options focused on deep skin hydration, cellular renewal and natural texture refinement.",
-    image: `${import.meta.env.BASE_URL}images/polynucleotides-under-eye.webp`,
-    imageAlt: "Majestic Aesthetics under-eye polynucleotides comparison, labelled before and after one session",
+    image: `${import.meta.env.BASE_URL}images/polynucleotides.png`,
+    imageAlt: "Polynucleotide treatments for skin quality",
     imageFit: 'contain',
     fullOverview: "Unlike traditional fillers that add structural volume, skin boosters and polynucleotides work biologically to restore cellular vitality, stimulate collagen and elastin production, and deeply hydrate the dermal layers from within. Ideal for crepey skin, dullness, fine dehydration lines, and tired-looking skin around the eyes, neck, and face.",
     suitability: [
@@ -158,7 +158,7 @@ export const treatmentsData: Treatment[] = [
   {
     id: "skinpen-microneedling",
     slug: "skinpen-microneedling",
-    title: "SkinPen Microneedling",
+    title: "Microneedling Facial",
     category: "Collagen Induction & Texture Renewal",
     shortDescription: "FDA-cleared microneedling designed to support natural collagen production and improve the look of acne scarring, texture and neck lines.",
     image: `${import.meta.env.BASE_URL}images/treatment-before-after.webp`,
@@ -202,3 +202,52 @@ export const treatmentsData: Treatment[] = [
     isConfirmed: true
   }
 ];
+
+const consultationDetails = {
+  suitability: ['Your goals and suitability are discussed during an individual consultation.'],
+  consultationSteps: ['Discuss your concerns and current routine.', 'Review your medical history and agree an individual plan.'],
+  appointmentInformation: 'Appointment length and any recommended follow-up will be confirmed during consultation.',
+  aftercareGuidelines: ['Follow the individual guidance provided at your appointment.'],
+  risksAndLimitations: ['Suitability, possible side effects and alternatives will be discussed before a plan is agreed.'],
+  faqs: [],
+  isConfirmed: true,
+};
+
+treatmentsData.splice(2, 0, {
+  ...consultationDetails,
+  id: 'skin-boosters',
+  slug: 'skin-boosters',
+  title: 'Skin Boosters',
+  category: 'Hydration & Skin Quality',
+  shortDescription: 'Personalised treatment options focused on skin hydration and texture.',
+  image: new URL('../assets/images/treatment_skin_boosters_1791474722864.webp', import.meta.url).href,
+  imageAlt: 'Skin booster treatment',
+  fullOverview: 'A skin consultation explores your hydration and skin-quality concerns, and whether skin boosters suit your individual goals. Katie will explain the proposed product, treatment course and aftercare before you decide to proceed.',
+});
+
+treatmentsData.push(
+  {
+    ...consultationDetails,
+    id: 'skincare-plans',
+    slug: 'skincare-plans',
+    title: 'Personalised Skincare Plans',
+    category: 'Skincare & Homecare',
+    shortDescription: 'Explore a skincare routine tailored to your skin concerns and goals.',
+    image: `${import.meta.env.BASE_URL}images/skincare-plans.png`,
+    imageAlt: 'Obagi skincare products for personalised skincare plans',
+    imageFit: 'contain',
+    fullOverview: 'Discuss your skin concerns, current products and homecare routine with Katie. Recommendations are tailored to your needs, with product availability and any prescription requirements confirmed during consultation.',
+  },
+  {
+    ...consultationDetails,
+    id: 'health-wellness',
+    slug: 'health-wellness',
+    title: 'Health & Wellness',
+    category: 'B12 & Kenalog Consultations',
+    shortDescription: 'Individual consultations for B12 and Kenalog enquiries.',
+    image: `${import.meta.env.BASE_URL}images/health-wellness.png`,
+    imageAlt: 'Health and wellness treatment ampoules',
+    imageFit: 'contain',
+    fullOverview: 'Arrange a consultation to discuss B12 or Kenalog with Katie. Your medical history, symptoms and any relevant investigations will inform whether treatment is appropriate. Any prescribing decision follows an individual clinical assessment.',
+  },
+);

@@ -55,6 +55,7 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   gap: .07em;
   font-family: var(--font-serif);
   font-size: clamp(38px, 17.6cqw, 74px);
+  line-height: 1.15;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .03em !important;
@@ -74,7 +75,7 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   -webkit-text-fill-color: initial;
 }
 .brand-logo__secondary {
-  margin-top: -.02em;
+  margin-top: 8px;
   font-family: var(--font-nav);
   font-size: clamp(14px, 4.6cqw, 25px);
   font-weight: 400;
