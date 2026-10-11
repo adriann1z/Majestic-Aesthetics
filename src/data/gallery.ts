@@ -17,6 +17,6 @@ export const galleryItems: GalleryItem[] = [
   { id: 'g-13', title: 'Under-Eye Polynucleotides: Side View', image: `${import.meta.env.BASE_URL}gallery/polynucleotides-before-after.png`, caption: 'A side-view comparison before and after under-eye polynucleotide treatment.', editorialTag: 'Polynucleotides' },
   { id: 'g-6', title: 'Lip Filler: Definition & Volume', image: `${import.meta.env.BASE_URL}gallery/before-after-8.png`, caption: 'Lip definition and volume, shown before and after treatment.', editorialTag: 'Lip Enhancement' },
   { id: 'g-10', title: 'Natural Lip Enhancement for Mature Women', image: `${import.meta.env.BASE_URL}gallery/natural-mature-lip-enhancement.png`, caption: 'Subtle lip enhancement for a natural look, shown before and after treatment.', editorialTag: 'Lip Enhancement' },
-  { id: 'g-8', title: 'Before & After: Facial Detail', image: `${import.meta.env.BASE_URL}gallery/before-after-4.png`, caption: 'A closer look at an individual client before and after treatment.', editorialTag: 'Client Results' },
+  { id: 'g-8', title: 'Natural Cheek Enhancement', image: `${import.meta.env.BASE_URL}gallery/natural-cheek-enhancement.png`, caption: 'Natural cheek filler enhancement, shown before and after treatment.', editorialTag: 'Cheek Filler' },
   { id: 'g-9', title: 'Before & After: Close-Up', image: `${import.meta.env.BASE_URL}gallery/before-after-9.png`, caption: 'An individual client result, shown in a close-up before-and-after comparison.', editorialTag: 'Client Results' },
 ];
