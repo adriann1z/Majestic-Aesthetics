@@ -11,9 +11,7 @@ interface TreatmentCardProps {
 export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelect }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
-  const pricing = ['skin-boosters', 'polynucleotides', 'dermal-fillers', 'anti-wrinkle-consultations'].includes(treatment.id)
-    ? treatmentPricing.filter((entry) => entry.treatmentId === treatment.id)
-    : [];
+  const pricing = treatmentPricing.filter((entry) => entry.treatmentId === treatment.id && !entry.isSignaturePackage);
   const startingPrice = pricing.length > 0
     ? Math.min(...pricing.flatMap((entry) => entry.items.map((item) => item.amount)))
     : null;

@@ -30,10 +30,10 @@ export const PriceListSection: React.FC<{ onOpenEnquiry: (treatmentName: string)
   <section id="prices" aria-labelledby="price-list-title" className="py-16 sm:py-24 bg-blush-pale/50 border-b border-border-blush">
     <div className="section-inner mx-auto px-5 sm:px-8 lg:px-12">
       <div className="mb-10 sm:mb-12">
-        <h2 id="price-list-title" className="font-serif text-3xl sm:text-4xl text-text-charcoal">Price List &amp; Signature Treatment Packages</h2>
+        <h2 id="price-list-title" className="font-serif text-3xl sm:text-4xl text-text-charcoal">Client Favourite Packages</h2>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-7">
-        {treatmentPricing.map((pricing) => (
+        {treatmentPricing.filter((pricing) => pricing.isSignaturePackage).map((pricing) => (
           <div key={pricing.title} className="min-w-0">
             <TreatmentPrices pricing={pricing} />
             <button type="button" onClick={() => onOpenEnquiry(pricingEnquiryCategories[pricing.treatmentId])} className="inline-flex items-center gap-2 mt-3 text-xs font-semibold text-rose-plum hover:text-rose-accent cursor-pointer">

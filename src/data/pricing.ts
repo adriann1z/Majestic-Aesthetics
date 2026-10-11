@@ -2,6 +2,7 @@ export interface TreatmentPricing {
   treatmentId: string;
   title: string;
   enquirySubject: string;
+  isSignaturePackage?: boolean;
   items: { label: string; amount: number; note?: string; from?: boolean }[];
   notes: string[];
 }
@@ -27,6 +28,7 @@ export const treatmentPricing: TreatmentPricing[] = [
     enquirySubject: 'Lip Enhancement Booking Enquiry',
     items: [
       { label: 'Premium Filler: 0.5ml', amount: 180 },
+      { label: 'Premium Filler: 0.7ml', amount: 190, note: 'Popular option' },
       { label: 'Premium Filler: 1.1ml', amount: 240 },
       { label: 'Classic Filler: 1.1ml', amount: 190 },
       { label: 'Dissolving Lip Filler', amount: 195 },
@@ -88,34 +90,34 @@ export const treatmentPricing: TreatmentPricing[] = [
     ], notes: [],
   },
   {
-    treatmentId: 'dermal-fillers', title: 'Lift & Glow Package', enquirySubject: 'Lift & Glow Package',
+    treatmentId: 'dermal-fillers', title: 'Lift & Glow Package', enquirySubject: 'Lift & Glow Package', isSignaturePackage: true,
     items: [{ label: '2-3ml Filler + 2 Skin Boosters or Polynucleotides', amount: 695, from: true,
       note: 'Cheek filler initially, followed by skin-quality treatments at weeks 4 and 8.' }],
     notes: ['Tailored following a facial assessment. Additional filler is charged separately.'],
   },
   {
-    treatmentId: 'dermal-fillers', title: 'Lift & Contour Package', enquirySubject: 'Lift & Contour Package',
+    treatmentId: 'dermal-fillers', title: 'Lift & Contour Package', enquirySubject: 'Lift & Contour Package', isSignaturePackage: true,
     items: [{ label: '6ml Filler', amount: 795, from: true, note: 'Tailored placement across cheeks, chin, nasolabial folds or lips.' }],
     notes: ['Includes consultation, facial planning and personalised aftercare. Additional filler is charged separately.'],
   },
   {
-    treatmentId: 'dermal-fillers', title: 'Lift, Glow & Contour - Signature Package', enquirySubject: 'Lift, Glow & Contour',
+    treatmentId: 'dermal-fillers', title: 'Lift, Glow & Contour - Signature Package', enquirySubject: 'Lift, Glow & Contour', isSignaturePackage: true,
     items: [{ label: '5ml Filler + 2 Skin Boosters + 1 Anti-Wrinkle Area or Brow Lift', amount: 1350, from: true,
       note: 'Initial filler and upper-face treatment, followed by skin boosters at weeks 4 and 8.' }],
     notes: ['Includes consultation, facial planning and personalised aftercare. Additional filler is charged separately.'],
   },
   {
-    treatmentId: 'dermal-fillers', title: 'Signature Lip Enhance', enquirySubject: 'Signature Lip Enhance',
+    treatmentId: 'dermal-fillers', title: 'Signature Lip Enhance', enquirySubject: 'Signature Lip Enhance', isSignaturePackage: true,
     items: [{ label: '0.5ml Filler', amount: 180, from: true }, { label: '1ml Filler', amount: 240, from: true }],
     notes: ['Tailored lip definition, hydration and shape, with personalised aftercare.'],
   },
   {
-    treatmentId: 'anti-wrinkle-consultations', title: 'Ultimate Glow Package', enquirySubject: 'Ultimate Glow Package',
+    treatmentId: 'anti-wrinkle-consultations', title: 'Ultimate Glow Package', enquirySubject: 'Ultimate Glow Package', isSignaturePackage: true,
     items: [{ label: '3 Anti-Wrinkle Areas + 2 Skin Boosters', amount: 595, from: true,
       note: 'Initial anti-wrinkle treatment and skin booster, with review and second skin booster at week 2.' }], notes: ['Includes personalised aftercare.'],
   },
   {
-    treatmentId: 'anti-wrinkle-consultations', title: 'Refresh Package', enquirySubject: 'Refresh Package',
+    treatmentId: 'anti-wrinkle-consultations', title: 'Refresh Package', enquirySubject: 'Refresh Package', isSignaturePackage: true,
     items: [{ label: 'Anti-Wrinkle Treatment Only', amount: 260, note: 'Treatment plan for 1-3 areas, with a review at week 2.' }], notes: [],
   },
 ];

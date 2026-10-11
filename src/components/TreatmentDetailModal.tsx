@@ -19,7 +19,7 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
 }) => {
   useDialogFocus(treatment !== null, onClose);
   if (!treatment) return null;
-  const pricing = treatmentPricing.filter((entry) => entry.treatmentId === treatment.id);
+  const pricing = treatmentPricing.filter((entry) => entry.treatmentId === treatment.id && !entry.isSignaturePackage);
 
   return (
     <div 

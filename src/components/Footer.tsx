@@ -79,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-white transition-colors cursor-pointer"
                   type="button"
                 >
-                  Price List
+                  Client Favourite Packages
                 </button>
               </li>
               <li>
