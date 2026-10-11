@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { treatmentPricing, TreatmentPricing } from '../data/pricing';
+import { treatmentPricing, TreatmentPricing, pricingEnquiryCategories } from '../data/pricing';
 
 const currency = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' });
 
@@ -14,7 +14,7 @@ export const TreatmentPrices: React.FC<{ pricing: TreatmentPricing }> = ({ prici
             {item.label}
             {item.note && <span className="block mt-1 text-xs text-text-muted leading-relaxed">{item.note}</span>}
           </dt>
-          <dd className="font-semibold text-rose-plum whitespace-nowrap tabular-nums">{currency.format(item.amount)}</dd>
+          <dd className="font-semibold text-rose-plum whitespace-nowrap tabular-nums">{item.from && <span className="block text-xs font-normal">From</span>}{currency.format(item.amount)}</dd>
         </div>
       ))}
     </dl>
@@ -34,13 +34,19 @@ export const PriceListSection: React.FC<{ onOpenEnquiry: (treatmentName: string)
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
         {treatmentPricing.map((pricing) => (
-          <div key={pricing.treatmentId} className="min-w-0">
+          <div key={pricing.title} className="min-w-0">
             <TreatmentPrices pricing={pricing} />
-            <button type="button" onClick={() => onOpenEnquiry(pricing.treatmentId === 'dermal-fillers' ? 'Dermal Fillers' : 'Anti-Wrinkle Consultations')} className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rose-plum hover:text-rose-accent cursor-pointer">
+            <button type="button" onClick={() => onOpenEnquiry(pricingEnquiryCategories[pricing.treatmentId])} className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rose-plum hover:text-rose-accent cursor-pointer">
               Get Started Here <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>
         ))}
+      </div>
+      <div className="mt-12 border-t border-border-blush pt-6 text-sm text-text-muted">
+        <p>Consultations are {currency.format(30)}, deductible from any treatment package you book.</p>
+        <button type="button" onClick={() => onOpenEnquiry('General Consultation')} className="inline-flex items-center gap-2 mt-4 font-semibold text-rose-plum hover:text-rose-accent cursor-pointer">
+          Book a Consultation <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
+        </button>
       </div>
     </div>
   </section>

@@ -304,6 +304,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                         <option value="Anti-Wrinkle Consultations">Anti-Wrinkle Assessment</option>
                         <option value="Skin Boosters & Polynucleotides">Skin Boosters & Polynucleotides</option>
                         <option value="SkinPen Microneedling">SkinPen Microneedling</option>
+                        <option value="Health & Wellness">Health & Wellness</option>
                         <option value="Obagi Skincare Enquiry">Obagi Skincare Range Enquiry</option>
                       </select>
                     </div>

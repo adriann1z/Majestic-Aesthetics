@@ -28,7 +28,7 @@ export default function App() {
   const [privacyModalOpen, setPrivacyModalOpen] = useState(false);
 
   const handleOpenBooking = (defaultFocus?: string) => {
-    const treatment = ['Dermal Fillers', 'Anti-Wrinkle Consultations', 'Skin Boosters & Polynucleotides', 'SkinPen Microneedling'];
+    const treatment = ['Dermal Fillers', 'Anti-Wrinkle Consultations', 'Skin Boosters & Polynucleotides', 'SkinPen Microneedling', 'Health & Wellness', 'General Consultation'];
     setEnquiryCategory(defaultFocus && treatment.includes(defaultFocus)
       ? defaultFocus
       : defaultFocus && defaultFocus !== 'Consultation with Katie Osborne'

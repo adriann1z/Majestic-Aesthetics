@@ -19,7 +19,7 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
 }) => {
   useDialogFocus(treatment !== null, onClose);
   if (!treatment) return null;
-  const pricing = treatmentPricing.find((entry) => entry.treatmentId === treatment.id);
+  const pricing = treatmentPricing.filter((entry) => entry.treatmentId === treatment.id);
 
   return (
     <div 
@@ -84,7 +84,7 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
             </div>
           </div>
 
-          {pricing && <TreatmentPrices pricing={pricing} />}
+          {pricing.length > 0 && <div className="space-y-8">{pricing.map((entry) => <TreatmentPrices key={entry.title} pricing={entry} />)}</div>}
 
           {/* Suitability & Candidate Assessment */}
           <div className="space-y-3">
