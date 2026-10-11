@@ -227,9 +227,6 @@ export const Footer: React.FC<FooterProps> = ({
             © 2026 Majestic Aesthetics. All rights reserved.
           </div>
 
-          <div className="text-center sm:text-right text-blush-pale/90 italic font-serif">
-            Private design concept prepared for Katie Osborne — not a live clinic website.
-          </div>
         </div>
 
       </div>
