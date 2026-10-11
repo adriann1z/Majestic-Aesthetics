@@ -1,7 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { treatmentPricing, TreatmentPricing } from '../data/pricing';
-import { siteConfig } from '../data/siteConfig';
 
 const currency = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' });
 
@@ -27,7 +26,7 @@ export const TreatmentPrices: React.FC<{ pricing: TreatmentPricing }> = ({ prici
   </div>
 );
 
-export const PriceListSection: React.FC = () => (
+export const PriceListSection: React.FC<{ onOpenEnquiry: (treatmentName: string) => void }> = ({ onOpenEnquiry }) => (
   <section id="prices" aria-labelledby="price-list-title" className="py-16 sm:py-24 bg-blush-pale/50 border-b border-border-blush">
     <div className="section-inner mx-auto px-5 sm:px-8 lg:px-12">
       <div className="mb-10 sm:mb-12">
@@ -37,9 +36,9 @@ export const PriceListSection: React.FC = () => (
         {treatmentPricing.map((pricing) => (
           <div key={pricing.treatmentId} className="min-w-0">
             <TreatmentPrices pricing={pricing} />
-            <a href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(pricing.enquirySubject)}`} className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rose-plum hover:text-rose-accent">
+            <button type="button" onClick={() => onOpenEnquiry(pricing.treatmentId === 'dermal-fillers' ? 'Dermal Fillers' : 'Anti-Wrinkle Consultations')} className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rose-plum hover:text-rose-accent cursor-pointer">
               Get Started Here <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
-            </a>
+            </button>
           </div>
         ))}
       </div>

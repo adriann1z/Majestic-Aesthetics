@@ -90,7 +90,7 @@ export default function App() {
           onOpenBooking={() => handleOpenBooking()}
         />
 
-        <PriceListSection />
+        <PriceListSection onOpenEnquiry={handleOpenBooking} />
 
         {/* 6. Meet Katie Section */}
         <PractitionerSection
