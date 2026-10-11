@@ -67,13 +67,16 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
 }
 .brand-logo__primary span:first-child { letter-spacing: .035em !important; }
 .brand-logo__heart {
-  width: .28em;
-  height: .28em;
+  width: .23em;
+  height: .3em;
   margin-top: .2em;
   flex-shrink: 0;
   color: var(--color-gold-deep);
-  fill: currentColor;
-  stroke-width: 1.5;
+  fill: none;
+  stroke-width: 1.25;
+  stroke-linejoin: miter;
+  stroke-linecap: butt;
+  transform: scaleX(.8);
 }
 .brand-logo__secondary {
   margin-top: 8px;
