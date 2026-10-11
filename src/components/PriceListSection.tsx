@@ -6,20 +6,20 @@ const currency = new Intl.NumberFormat('en-GB', { style: 'currency', currency: '
 
 export const TreatmentPrices: React.FC<{ pricing: TreatmentPricing; compact?: boolean }> = ({ pricing, compact = false }) => (
   <div>
-    <h3 className={`font-serif ${compact ? 'text-base' : 'text-xl'} text-rose-plum mb-4`}>{pricing.title}</h3>
+    <h3 className={`font-serif ${compact ? 'text-base' : 'text-lg'} text-rose-plum mb-2`}>{pricing.title}</h3>
     <dl className="divide-y divide-border-blush border-y border-border-blush">
       {pricing.items.map((item) => (
-        <div key={item.label} className={`grid grid-cols-[minmax(0,1fr)_auto] ${compact ? 'gap-x-2 py-3 text-xs' : 'gap-x-4 py-4 text-sm'} gap-y-1`}>
+        <div key={item.label} className={`grid grid-cols-[minmax(0,1fr)_7rem] ${compact ? 'gap-x-2 py-2 text-xs' : 'gap-x-3 py-2.5 text-sm'} gap-y-1 items-baseline`}>
           <dt className="min-w-0 text-text-charcoal">
             {item.label}
-            {item.note && <span className="block mt-1 text-xs text-text-muted leading-relaxed">{item.note}</span>}
           </dt>
-          <dd className="font-semibold text-rose-plum whitespace-nowrap tabular-nums">{item.from && <span className="block text-xs font-normal">From</span>}{currency.format(item.amount)}</dd>
+          <dd className="font-semibold text-rose-plum whitespace-nowrap tabular-nums text-right">{item.from && <span className="text-xs font-normal mr-1">From</span>}{currency.format(item.amount)}</dd>
+          {item.note && <dd className="col-span-2 text-xs text-text-muted leading-relaxed">{item.note}</dd>}
         </div>
       ))}
     </dl>
     {pricing.notes.length > 0 && (
-      <div className={`mt-4 space-y-2 ${compact ? 'text-xs' : 'text-sm'} text-text-muted leading-relaxed`}>
+      <div className="mt-2 space-y-1 text-xs text-text-muted leading-relaxed">
         {pricing.notes.map((note) => <p key={note}>{note}</p>)}
       </div>
     )}
@@ -32,11 +32,11 @@ export const PriceListSection: React.FC<{ onOpenEnquiry: (treatmentName: string)
       <div className="mb-10 sm:mb-12">
         <h2 id="price-list-title" className="font-serif text-3xl sm:text-4xl text-text-charcoal">Price List &amp; Signature Treatment Packages</h2>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 lg:gap-x-12 gap-y-7">
         {treatmentPricing.map((pricing) => (
           <div key={pricing.title} className="min-w-0">
             <TreatmentPrices pricing={pricing} />
-            <button type="button" onClick={() => onOpenEnquiry(pricingEnquiryCategories[pricing.treatmentId])} className="inline-flex items-center gap-2 mt-6 text-sm font-semibold text-rose-plum hover:text-rose-accent cursor-pointer">
+            <button type="button" onClick={() => onOpenEnquiry(pricingEnquiryCategories[pricing.treatmentId])} className="inline-flex items-center gap-2 mt-3 text-xs font-semibold text-rose-plum hover:text-rose-accent cursor-pointer">
               Get Started Here <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
             </button>
           </div>

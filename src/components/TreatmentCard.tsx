@@ -11,7 +11,7 @@ interface TreatmentCardProps {
 export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelect }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
-  const pricing = ['skin-boosters', 'polynucleotides', 'dermal-fillers'].includes(treatment.id)
+  const pricing = ['skin-boosters', 'polynucleotides', 'dermal-fillers', 'anti-wrinkle-consultations'].includes(treatment.id)
     ? treatmentPricing.filter((entry) => entry.treatmentId === treatment.id)
     : [];
   const startingPrice = pricing.length > 0
@@ -48,14 +48,15 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
         {treatment.imageFit !== 'contain' && <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />}
       </div>
 
-      {startingPrice !== null && (
-        <div className="w-full px-5 xl:px-6 py-3 border-b border-border-blush bg-blush-pale/40 text-sm font-semibold text-rose-plum">
-          From {new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(startingPrice)}
-        </div>
-      )}
+      <div className="w-full h-10 shrink-0 flex items-center justify-between gap-2 px-5 xl:px-6 border-b border-border-blush bg-blush-pale/40 text-xs text-text-muted">
+        <span>{startingPrice !== null ? 'From' : 'Pricing'}</span>
+        <span className="font-semibold text-rose-plum tabular-nums">{startingPrice !== null
+          ? new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(startingPrice)
+          : 'On enquiry'}</span>
+      </div>
 
       {/* Card Content */}
-      <div className="p-5 xl:p-6 flex flex-col flex-1 justify-between bg-white relative w-full">
+      <div className="p-4 xl:p-5 flex flex-col flex-1 justify-between bg-white relative w-full">
         <div className="absolute top-0 right-8 w-20 h-1 bg-gradient-to-r from-transparent via-gold-metallic/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
         <div>
           <span className="block min-h-8 text-[10px] leading-4 font-semibold text-rose-accent uppercase">
@@ -71,7 +72,7 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
           </p>
         </div>
 
-        <div className="pt-4 mt-5 border-t border-border-blush/60 flex flex-col items-start gap-2">
+        <div className="pt-3 mt-4 border-t border-border-blush/60 flex flex-col items-start gap-1.5">
           <span className="inline-flex items-center justify-between w-full gap-2 text-[11px] font-semibold uppercase text-rose-button group-hover:text-rose-plum transition-colors">
             {startingPrice !== null ? 'View Prices' : 'Explore Treatment'}
             <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none" />
