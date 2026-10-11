@@ -49,6 +49,7 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   line-height: 1;
 }
 .brand-logo__primary {
+  --logo-gold: linear-gradient(135deg, #8f642c 0%, #c49a53 36%, #f2dcad 52%, #a17438 76%, #6d491f 100%);
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -59,7 +60,7 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: .03em !important;
-  background: linear-gradient(135deg, #8f642c 0%, #c49a53 36%, #f2dcad 52%, #a17438 76%, #6d491f 100%);
+  background: var(--logo-gold);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -71,7 +72,9 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   height: .38em;
   margin-top: .2em;
   flex-shrink: 0;
-  object-fit: contain;
+  background: var(--logo-gold);
+  -webkit-mask: url('../public/images/logo-heart.png') center / contain no-repeat;
+  mask: url('../public/images/logo-heart.png') center / contain no-repeat;
 }
 .brand-logo__secondary {
   margin-top: 8px;
