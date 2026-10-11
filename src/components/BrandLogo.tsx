@@ -8,7 +8,6 @@ export const BrandLogo = ({ variant = 'full', className = '', showSubtitle = tru
   <div className={`brand-logo brand-logo--${variant} ${className}`} aria-label="Majestic Aesthetics">
     <div className="brand-logo__primary">
       <span>Majestic</span>
-      <span className="brand-logo__spark" aria-hidden="true" />
     </div>
     <div className="brand-logo__secondary">Aesthetics</div>
     {showSubtitle && (
