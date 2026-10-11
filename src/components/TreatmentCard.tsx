@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Treatment } from '../data/treatments';
+import { treatmentPricing } from '../data/pricing';
+import { TreatmentPrices } from './PriceListSection';
 
 interface TreatmentCardProps {
   treatment: Treatment;
@@ -10,13 +12,17 @@ interface TreatmentCardProps {
 export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelect }) => {
   const [imgLoaded, setImgLoaded] = useState(false);
   const [imgError, setImgError] = useState(false);
+  const pricing = ['skin-boosters', 'polynucleotides', 'dermal-fillers'].includes(treatment.id)
+    ? treatmentPricing.filter((entry) => entry.treatmentId === treatment.id)
+    : [];
 
   return (
+    <article className="treatment-card w-full min-w-0 bg-white overflow-hidden border border-border-blush flex flex-col">
     <button
       type="button"
       onClick={() => onSelect(treatment)}
       aria-label={`Explore ${treatment.title}`}
-      className="treatment-card group text-left w-full min-w-0 bg-white overflow-hidden border border-border-blush transition-all duration-300 flex flex-col cursor-pointer hover:-translate-y-2 focus-visible:-translate-y-2 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-button motion-reduce:transform-none"
+      className="group text-left w-full min-w-0 bg-white transition-colors flex flex-col cursor-pointer focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-rose-button"
     >
       {/* Edge-to-edge photography container */}
       <div className="relative aspect-square w-full overflow-hidden bg-blush-pale shrink-0">
@@ -67,5 +73,11 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
         </div>
       </div>
     </button>
+    {pricing.length > 0 && (
+      <div className="px-5 pb-6 xl:px-6 space-y-6 border-t border-border-blush pt-5" aria-label={`${treatment.title} prices`}>
+        {pricing.map((entry) => <TreatmentPrices key={entry.title} pricing={entry} compact />)}
+      </div>
+    )}
+    </article>
   );
 };

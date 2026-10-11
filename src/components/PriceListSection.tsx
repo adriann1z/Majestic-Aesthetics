@@ -4,12 +4,12 @@ import { treatmentPricing, TreatmentPricing, pricingEnquiryCategories } from '..
 
 const currency = new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP' });
 
-export const TreatmentPrices: React.FC<{ pricing: TreatmentPricing }> = ({ pricing }) => (
+export const TreatmentPrices: React.FC<{ pricing: TreatmentPricing; compact?: boolean }> = ({ pricing, compact = false }) => (
   <div>
-    <h3 className="font-serif text-xl text-rose-plum mb-4">{pricing.title}</h3>
+    <h3 className={`font-serif ${compact ? 'text-base' : 'text-xl'} text-rose-plum mb-4`}>{pricing.title}</h3>
     <dl className="divide-y divide-border-blush border-y border-border-blush">
       {pricing.items.map((item) => (
-        <div key={item.label} className="grid grid-cols-[minmax(0,1fr)_auto] gap-x-4 gap-y-1 py-4 text-sm">
+        <div key={item.label} className={`grid grid-cols-[minmax(0,1fr)_auto] ${compact ? 'gap-x-2 py-3 text-xs' : 'gap-x-4 py-4 text-sm'} gap-y-1`}>
           <dt className="min-w-0 text-text-charcoal">
             {item.label}
             {item.note && <span className="block mt-1 text-xs text-text-muted leading-relaxed">{item.note}</span>}
@@ -19,7 +19,7 @@ export const TreatmentPrices: React.FC<{ pricing: TreatmentPricing }> = ({ prici
       ))}
     </dl>
     {pricing.notes.length > 0 && (
-      <div className="mt-4 space-y-2 text-sm text-text-muted leading-relaxed">
+      <div className={`mt-4 space-y-2 ${compact ? 'text-xs' : 'text-sm'} text-text-muted leading-relaxed`}>
         {pricing.notes.map((note) => <p key={note}>{note}</p>)}
       </div>
     )}
