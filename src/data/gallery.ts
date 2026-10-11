@@ -13,6 +13,7 @@ export const galleryItems: GalleryItem[] = [
   { id: 'g-4', title: 'Midface Rejuvenation', image: `${import.meta.env.BASE_URL}gallery/midface-rejuvenation.png`, caption: 'Midface rejuvenation, shown before and after treatment.', editorialTag: 'Facial Rejuvenation' },
   { id: 'g-5', title: 'Dermaplane & Glow', image: `${import.meta.env.BASE_URL}gallery/10.webp`, caption: 'Skin following a dermaplaning treatment.', editorialTag: 'Skin Treatments' },
   { id: 'g-6', title: 'Lip Filler: Definition & Volume', image: `${import.meta.env.BASE_URL}gallery/before-after-8.png`, caption: 'Lip definition and volume, shown before and after treatment.', editorialTag: 'Lip Enhancement' },
+  { id: 'g-10', title: 'Natural Lip Enhancement for Mature Women', image: `${import.meta.env.BASE_URL}gallery/natural-mature-lip-enhancement.png`, caption: 'Subtle lip enhancement for a natural look, shown before and after treatment.', editorialTag: 'Lip Enhancement' },
   { id: 'g-8', title: 'Before & After: Facial Detail', image: `${import.meta.env.BASE_URL}gallery/before-after-4.png`, caption: 'A closer look at an individual client before and after treatment.', editorialTag: 'Client Results' },
   { id: 'g-9', title: 'Before & After: Close-Up', image: `${import.meta.env.BASE_URL}gallery/before-after-9.png`, caption: 'An individual client result, shown in a close-up before-and-after comparison.', editorialTag: 'Client Results' },
 ];
