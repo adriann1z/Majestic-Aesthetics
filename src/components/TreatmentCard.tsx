@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Treatment } from '../data/treatments';
 import { treatmentPricing } from '../data/pricing';
-import { TreatmentPrices } from './PriceListSection';
 
 interface TreatmentCardProps {
   treatment: Treatment;
@@ -15,14 +14,16 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
   const pricing = ['skin-boosters', 'polynucleotides', 'dermal-fillers'].includes(treatment.id)
     ? treatmentPricing.filter((entry) => entry.treatmentId === treatment.id)
     : [];
+  const startingPrice = pricing.length > 0
+    ? Math.min(...pricing.flatMap((entry) => entry.items.map((item) => item.amount)))
+    : null;
 
   return (
-    <article className="treatment-card w-full min-w-0 bg-white overflow-hidden border border-border-blush flex flex-col">
     <button
       type="button"
       onClick={() => onSelect(treatment)}
-      aria-label={`Explore ${treatment.title}`}
-      className="group text-left w-full min-w-0 bg-white transition-colors flex flex-col cursor-pointer focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-rose-button"
+      aria-label={startingPrice !== null ? `View prices for ${treatment.title}` : `Explore ${treatment.title}`}
+      className="treatment-card group text-left w-full min-w-0 bg-white overflow-hidden border border-border-blush transition-colors flex flex-col cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-rose-button"
     >
       {/* Edge-to-edge photography container */}
       <div className="relative aspect-square w-full overflow-hidden bg-blush-pale shrink-0">
@@ -47,6 +48,12 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
         {treatment.imageFit !== 'contain' && <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />}
       </div>
 
+      {startingPrice !== null && (
+        <div className="w-full px-5 xl:px-6 py-3 border-b border-border-blush bg-blush-pale/40 text-sm font-semibold text-rose-plum">
+          From {new Intl.NumberFormat('en-GB', { style: 'currency', currency: 'GBP', maximumFractionDigits: 0 }).format(startingPrice)}
+        </div>
+      )}
+
       {/* Card Content */}
       <div className="p-5 xl:p-6 flex flex-col flex-1 justify-between bg-white relative w-full">
         <div className="absolute top-0 right-8 w-20 h-1 bg-gradient-to-r from-transparent via-gold-metallic/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -66,18 +73,12 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
 
         <div className="pt-4 mt-5 border-t border-border-blush/60 flex flex-col items-start gap-2">
           <span className="inline-flex items-center justify-between w-full gap-2 text-[11px] font-semibold uppercase text-rose-button group-hover:text-rose-plum transition-colors">
-            Explore Treatment
+            {startingPrice !== null ? 'View Prices' : 'Explore Treatment'}
             <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-1 group-focus-visible:translate-x-1 motion-reduce:transform-none" />
           </span>
           <span className="text-[11px] text-text-muted">In-person assessment</span>
         </div>
       </div>
     </button>
-    {pricing.length > 0 && (
-      <div className="px-5 pb-6 xl:px-6 space-y-6 border-t border-border-blush pt-5" aria-label={`${treatment.title} prices`}>
-        {pricing.map((entry) => <TreatmentPrices key={entry.title} pricing={entry} compact />)}
-      </div>
-    )}
-    </article>
   );
 };
