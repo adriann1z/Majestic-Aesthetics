@@ -66,13 +66,14 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   text-shadow: 0 2px 7px rgba(72, 43, 18, .18);
 }
 .brand-logo__primary span:first-child { letter-spacing: .035em !important; }
-.brand-logo__spark {
+.brand-logo__heart {
   width: .28em;
   height: .28em;
   margin-top: .2em;
-  background: currentColor;
-  clip-path: polygon(50% 0, 61% 38%, 100% 50%, 61% 62%, 50% 100%, 39% 62%, 0 50%, 39% 38%);
-  -webkit-text-fill-color: initial;
+  flex-shrink: 0;
+  color: var(--color-gold-deep);
+  fill: currentColor;
+  stroke-width: 1.5;
 }
 .brand-logo__secondary {
   margin-top: 8px;

@@ -1,3 +1,5 @@
+import { Heart } from 'lucide-react';
+
 interface BrandLogoProps {
   variant?: 'full' | 'compact' | 'light';
   className?: string;
@@ -8,6 +10,7 @@ export const BrandLogo = ({ variant = 'full', className = '', showSubtitle = tru
   <div className={`brand-logo brand-logo--${variant} ${className}`} aria-label="Majestic Aesthetics">
     <div className="brand-logo__primary">
       <span>Majestic</span>
+      <Heart className="brand-logo__heart" aria-hidden="true" />
     </div>
     <div className="brand-logo__secondary">Aesthetics</div>
     {showSubtitle && (
