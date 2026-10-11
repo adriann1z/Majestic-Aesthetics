@@ -36,6 +36,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
   const navLinks = [
     { label: 'Home', id: 'hero' },
     { label: 'Treatments', id: 'treatments' },
+    { label: 'Price List', id: 'prices' },
     { label: 'Meet Katie', id: 'practitioner' },
     { label: 'Skincare', id: 'skincare' },
     { label: 'Our Approach', id: 'approach' },

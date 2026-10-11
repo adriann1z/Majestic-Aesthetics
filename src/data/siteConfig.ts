@@ -65,8 +65,8 @@ Her aim is to help clients make informed, confident decisions about their aesthe
   },
   contact: {
     email: "info@majesticaesthetics.uk",
-    phone: "023 9281 6845",
-    phoneHref: "tel:+442392816845",
+    phone: "07908009349",
+    phoneHref: "tel:+447908009349",
     existingWebsite: "https://www.majesticaesthetics.co.uk/"
   },
   obagiExpansion: {
@@ -124,7 +124,7 @@ export const clientReviewItems = [
   {
     id: "phone",
     item: "Clinic Telephone",
-    currentConceptValue: "023 9281 6845",
+    currentConceptValue: "07908009349",
     status: "Owner supplied",
     actionRequired: "Telephone number supplied and added to the site's contact links."
   },

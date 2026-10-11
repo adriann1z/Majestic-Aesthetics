@@ -3,6 +3,8 @@ import { X, CheckCircle2, AlertCircle, Calendar, ArrowRight, HelpCircle, HeartPu
 import { Treatment } from '../data/treatments';
 import { BrandLogo } from './BrandLogo';
 import { useDialogFocus } from '../hooks/useDialogFocus';
+import { treatmentPricing } from '../data/pricing';
+import { TreatmentPrices } from './PriceListSection';
 
 interface TreatmentDetailModalProps {
   treatment: Treatment | null;
@@ -17,6 +19,7 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
 }) => {
   useDialogFocus(treatment !== null, onClose);
   if (!treatment) return null;
+  const pricing = treatmentPricing.find((entry) => entry.treatmentId === treatment.id);
 
   return (
     <div 
@@ -80,6 +83,8 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
               </div>
             </div>
           </div>
+
+          {pricing && <TreatmentPrices pricing={pricing} />}
 
           {/* Suitability & Candidate Assessment */}
           <div className="space-y-3">

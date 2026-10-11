@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustStrip } from './components/TrustStrip';
 import { TreatmentsSection } from './components/TreatmentsSection';
+import { PriceListSection } from './components/PriceListSection';
 import { PractitionerSection } from './components/PractitionerSection';
 import { SkincareSection } from './components/SkincareSection';
 import { ProcessSection } from './components/ProcessSection';
@@ -88,6 +89,8 @@ export default function App() {
           onSelectTreatment={(treatment) => setSelectedTreatment(treatment)}
           onOpenBooking={() => handleOpenBooking()}
         />
+
+        <PriceListSection />
 
         {/* 6. Meet Katie Section */}
         <PractitionerSection

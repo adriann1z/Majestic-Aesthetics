@@ -161,8 +161,8 @@ export const treatmentsData: Treatment[] = [
     title: "Microneedling Facial",
     category: "Collagen Induction & Texture Renewal",
     shortDescription: "FDA-cleared microneedling designed to support natural collagen production and improve the look of acne scarring, texture and neck lines.",
-    image: `${import.meta.env.BASE_URL}images/treatment-before-after.webp`,
-    imageAlt: "Majestic Aesthetics skin treatment before-and-after comparison",
+    image: `${import.meta.env.BASE_URL}images/microneedling-facial.png`,
+    imageAlt: "Microneedling facial treatment",
     imageFit: 'contain',
     fullOverview: "SkinPen is a professional microneedling treatment designed to create controlled micro-channels in the skin, encouraging the body's natural wound-healing response and collagen production. It can be considered for improving the appearance of facial acne scars, refining uneven texture, and supporting skin quality on the face and neck without heat, lasers or chemical resurfacing.",
     suitability: [
@@ -220,7 +220,7 @@ treatmentsData.splice(2, 0, {
   title: 'Skin Boosters',
   category: 'Hydration & Skin Quality',
   shortDescription: 'Personalised treatment options focused on skin hydration and texture.',
-  image: new URL('../assets/images/treatment_skin_boosters_1791474722864.webp', import.meta.url).href,
+  image: `${import.meta.env.BASE_URL}images/skin-boosters.png`,
   imageAlt: 'Skin booster treatment',
   fullOverview: 'A skin consultation explores your hydration and skin-quality concerns, and whether skin boosters suit your individual goals. Katie will explain the proposed product, treatment course and aftercare before you decide to proceed.',
 });
