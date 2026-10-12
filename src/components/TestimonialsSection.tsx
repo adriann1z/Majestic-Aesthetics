@@ -1,26 +1,27 @@
 import React from 'react';
-import { Quote, Sparkles, ShieldCheck, Heart } from 'lucide-react';
+import { Quote, ShieldCheck, Star } from 'lucide-react';
+
+const freshaReviewsUrl = 'https://www.fresha.com/a/majestic-aesthetics-portsmouth-166-eastney-road-8wib9vsn?pId=448748';
 
 export const TestimonialsSection: React.FC = () => {
-  // Demonstration template cards displaying the architecture ready for Katie's verified testimonials
-  const sampleLayouts = [
+  const freshaReviews = [
     {
-      treatment: "Facial Aesthetics Consultation",
-      previewQuote: "Client reviews and feedback quotes will appear here once approved by Katie Osborne.",
-      source: "Verified Consultation Feedback",
-      initials: "K.O. Client"
+      treatment: "Professional Care",
+      quote: "As always a lovely and professional experience with Katie. Plus amazing results",
+      source: "Gemma H, Fresha review",
+      initials: "G"
     },
     {
-      treatment: "Skin Quality & Biorevitalisation",
-      previewQuote: "Client reviews and feedback quotes will appear here once approved by Katie Osborne.",
-      source: "Google / Clinic Feedback",
-      initials: "Aesthetics Patient"
+      treatment: "Client Service",
+      quote: "Thank you great service as always x",
+      source: "Louisa M, Fresha review",
+      initials: "L"
     },
     {
-      treatment: "Bespoke Treatment Planning",
-      previewQuote: "Client reviews and feedback quotes will appear here once approved by Katie Osborne.",
-      source: "Verified Clinic Feedback",
-      initials: "Southsea Client"
+      treatment: "Lip Results",
+      quote: "Amazing experience. Great chat and great results with the lips. I love them.",
+      source: "Shakira G, Fresha review",
+      initials: "S"
     }
   ];
 
@@ -46,21 +47,28 @@ export const TestimonialsSection: React.FC = () => {
           </h2>
 
           <p className="text-base text-text-muted font-light leading-relaxed">
-            A space for client experiences, with approved feedback to be added by Katie.
+            Verified feedback from Fresha, where Majestic Aesthetics is rated 5.0 from 373 reviews.
           </p>
         </div>
 
-        {/* Professional Review Policy Banner */}
-        <div className="mb-10 max-w-3xl mx-auto p-4.5 rounded-2xl bg-white/80 border border-border-blush flex items-center justify-center gap-3 text-center shadow-xs">
+        <div className="mb-10 max-w-3xl mx-auto p-4.5 rounded-lg bg-white/80 border border-border-blush flex flex-col sm:flex-row items-center justify-center gap-3 text-center shadow-xs">
           <ShieldCheck className="w-5 h-5 text-rose-button shrink-0" />
           <p className="text-xs sm:text-sm text-text-muted">
-            <strong className="text-text-charcoal font-medium">Authenticity Standard:</strong> In adherence to UK medical advertising ethics, reviews are not fabricated. Verified client testimonials will appear here once approved.
+            <strong className="text-text-charcoal font-medium">Verified reviews:</strong> Recent client feedback is sourced from the clinic's public Fresha profile.
           </p>
+          <a
+            href={freshaReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-full bg-rose-button px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-rose-plum focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C08EA1]"
+          >
+            <Star className="h-4 w-4" aria-hidden="true" />
+            Read reviews
+          </a>
         </div>
 
-        {/* 3 Review Cards Preview */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {sampleLayouts.map((item, index) => (
+          {freshaReviews.map((item, index) => (
             <div 
               key={index}
                 className="bg-white rounded-lg p-7 border border-border-blush shadow-xs flex flex-col justify-between relative group hover:border-rose-brand/70 transition-colors"
@@ -73,7 +81,7 @@ export const TestimonialsSection: React.FC = () => {
                 </span>
 
                 <p className="font-serif italic text-base sm:text-lg text-text-charcoal leading-relaxed mb-6">
-                  "{item.previewQuote}"
+                  "{item.quote}"
                 </p>
               </div>
 
