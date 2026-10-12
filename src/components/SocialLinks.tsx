@@ -14,12 +14,14 @@ export const SocialLinks = () => (
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={label === 'Reviews' ? 'Read Majestic Aesthetics reviews on Fresha (opens in a new tab)' : `Majestic Aesthetics on ${label} (opens in a new tab)`}
+        aria-label={label === 'Reviews' ? 'See reviews on Fresha (opens in a new tab)' : `Majestic Aesthetics on ${label} (opens in a new tab)`}
         className={`group relative inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full text-white shadow-sm hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C08EA1] transition-all motion-reduce:transform-none ${className}`}
       >
         <Icon className="h-6 w-6" aria-hidden="true" />
-        <span className="pointer-events-none absolute right-0 top-full z-40 mt-1 rounded px-2 py-1 text-xs bg-[#282924] text-white opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity">
-          {label}
+        <span className={label === 'Reviews'
+          ? 'pointer-events-none absolute top-full mt-1 whitespace-nowrap text-[11px] font-semibold text-rose-plum'
+          : 'pointer-events-none absolute right-0 top-full z-40 mt-1 rounded px-2 py-1 text-xs bg-[#282924] text-white opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100 transition-opacity'}>
+          {label === 'Reviews' ? 'See reviews' : label}
         </span>
       </a>
     ))}

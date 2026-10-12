@@ -63,7 +63,7 @@ export const TestimonialsSection: React.FC = () => {
             className="inline-flex items-center gap-2 rounded-full bg-rose-button px-4 py-2 text-xs font-semibold uppercase tracking-[0.14em] text-white shadow-sm transition hover:bg-rose-plum focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#C08EA1]"
           >
             <Star className="h-4 w-4" aria-hidden="true" />
-            Read reviews
+            See reviews
           </a>
         </div>
 
