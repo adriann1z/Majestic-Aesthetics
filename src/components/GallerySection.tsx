@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Maximize2, ChevronRight, ChevronLeft } from 'lucide-react';
 import { galleryItems, GalleryItem } from '../data/gallery';
 import { DecorativeBackground } from './DecorativeBackground';
@@ -95,10 +96,11 @@ export const GallerySection: React.FC = () => {
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.015] motion-reduce:transform-none"
+                className="w-full h-full object-contain"
                 width={750}
                 height={750}
                 loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
               />
 
@@ -128,7 +130,7 @@ export const GallerySection: React.FC = () => {
       </div>
 
       {/* Lightbox Modal */}
-      {activeItem && (
+      {activeItem && createPortal(
         <div 
           className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
           onClick={() => setActiveItem(null)}
@@ -192,7 +194,8 @@ export const GallerySection: React.FC = () => {
               <span className="text-[11px] text-rose-button font-mono">Majestic Aesthetics</span>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </section>
   );

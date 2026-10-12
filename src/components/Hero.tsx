@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import heroPortrait from '../assets/images/regenerated_image_1791482961876.webp';
+import heroPortrait from '../assets/images/hero-portrait-full.webp';
 
 interface HeroProps {
   onOpenBooking: () => void;
@@ -93,6 +93,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onExploreTreatments }
                     onLoad={() => setImgLoaded(true)}
                     onError={() => setImgError(true)}
                     loading="eager"
+                    width={1254}
+                    height={1254}
+                    decoding="async"
                     fetchPriority="high"
                     referrerPolicy="no-referrer"
                   />

@@ -29,12 +29,15 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
           <img
             src={treatment.image}
             alt={treatment.imageAlt}
-            className={`w-full h-full ${treatment.imageFit === 'contain' ? 'object-contain' : 'object-cover group-hover:scale-105'} transition-transform duration-700 ${
+            className={`w-full h-full ${treatment.imageFit === 'contain' ? 'object-contain' : 'object-cover'} transition-opacity duration-300 ${
               imgLoaded ? 'opacity-100' : 'opacity-0'
             }`}
             onLoad={() => setImgLoaded(true)}
             onError={() => setImgError(true)}
             loading="lazy"
+            decoding="async"
+            width={1080}
+            height={1080}
             referrerPolicy="no-referrer"
           />
         ) : (
@@ -43,7 +46,6 @@ export const TreatmentCard: React.FC<TreatmentCardProps> = ({ treatment, onSelec
           </div>
         )}
 
-        {treatment.imageFit !== 'contain' && <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />}
       </div>
 
       <div className="w-full h-10 shrink-0 flex items-center justify-between gap-2 px-5 xl:px-6 border-b border-border-blush bg-blush-pale/40 text-xs text-text-muted">
