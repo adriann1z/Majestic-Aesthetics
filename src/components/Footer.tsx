@@ -9,13 +9,15 @@ interface FooterProps {
   onOpenPrivacy: () => void;
   onOpenChecklist: () => void;
   onOpenBooking: () => void;
+  onNavigateCollective: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({
   onNavigate,
   onOpenPrivacy,
   onOpenChecklist,
-  onOpenBooking
+  onOpenBooking,
+  onNavigateCollective,
 }) => {
   return (
     <footer className="site-footer bg-rose-plum text-blush-pale border-t border-rose-accent relative overflow-hidden">
@@ -81,6 +83,15 @@ export const Footer: React.FC<FooterProps> = ({
                 >
                   Client Favourite Packages
                 </button>
+              </li>
+              <li>
+                <a
+                  href={`${import.meta.env.BASE_URL}skin-hormone-collective`}
+                  onClick={(event) => { event.preventDefault(); onNavigateCollective(); }}
+                  className="hover:text-white transition-colors"
+                >
+                  The Skin &amp; Hormone Collective
+                </a>
               </li>
               <li>
                 <button

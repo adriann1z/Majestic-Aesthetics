@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Majestic Aesthetics</title>
+    <script>
+      (function (location) {
+        var keep = location.hostname.endsWith('github.io') ? 1 : 0;
+        var base = location.pathname.split('/').slice(0, 1 + keep).join('/');
+        var route = location.pathname.slice(1).split('/').slice(keep).join('/').replace(/&/g, '~and~');
+        var query = location.search ? '&' + location.search.slice(1).replace(/&/g, '~and~') : '';
+        location.replace(location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') + base + '/?/' + route + query + location.hash);
+      }(window.location));
+    </script>
+  </head>
+  <body></body>
+</html>

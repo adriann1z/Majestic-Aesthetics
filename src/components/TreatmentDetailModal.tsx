@@ -193,7 +193,6 @@ export const TreatmentDetailModal: React.FC<TreatmentDetailModalProps> = ({
             </button>
             <button
               onClick={() => {
-                onClose();
                 onBookTreatment(treatment.title);
               }}
               type="button"

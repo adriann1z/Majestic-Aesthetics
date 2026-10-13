@@ -8,9 +8,11 @@ interface HeaderProps {
   onOpenBooking: () => void;
   activeSection?: string;
   onNavigate: (sectionId: string) => void;
+  onNavigateCollective: () => void;
+  currentPage: 'home' | 'collective';
 }
 
-export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => {
+export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate, onNavigateCollective, currentPage }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -37,6 +39,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
     { label: 'Home', id: 'hero' },
     { label: 'Treatments', id: 'treatments' },
     { label: 'Packages', id: 'prices' },
+    { label: 'Skin & Hormones', id: 'collective' },
     { label: 'Meet Katie', id: 'practitioner' },
     { label: 'Skincare', id: 'skincare' },
     { label: 'Our Approach', id: 'approach' },
@@ -45,7 +48,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
   ];
 
   const handleNavClick = (id: string) => {
-    onNavigate(id);
+    if (id === 'collective') onNavigateCollective();
+    else onNavigate(id);
     setMobileMenuOpen(false);
   };
 
@@ -79,7 +83,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
             aria-label="Main Navigation"
             className="header-navigation order-3 w-full hidden lg:flex items-center justify-center gap-7 border-t border-border-blush pt-3 text-[13px] font-medium text-text-charcoal"
           >
-            {navLinks.map((link) => (
+            {navLinks.map((link) => link.id === 'collective' ? (
+              <a
+                key={link.id}
+                href={`${import.meta.env.BASE_URL}skin-hormone-collective`}
+                onClick={(event) => { event.preventDefault(); handleNavClick(link.id); }}
+                aria-current={currentPage === 'collective' ? 'page' : undefined}
+                className="relative py-1 font-medium text-text-muted transition-colors hover:text-rose-plum aria-[current=page]:text-rose-plum"
+              >
+                {link.label}
+              </a>
+            ) : (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
@@ -101,6 +115,14 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
               <p>{siteConfig.location.addressLine}</p>
               <p>{siteConfig.location.town}, {siteConfig.location.city}, {siteConfig.location.postcode}</p>
             </div>
+            <button
+              type="button"
+              onClick={onOpenBooking}
+              className="header-booking hidden lg:inline-flex items-center gap-2 rounded-md bg-rose-button px-5 py-2 text-xs font-semibold uppercase text-white transition-colors hover:bg-rose-accent"
+            >
+              <Calendar className="h-4 w-4" aria-hidden="true" />
+              <span>Book a Consultation</span>
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="ml-auto p-2 text-text-charcoal lg:hidden hover:text-rose-plum transition-colors cursor-pointer"
@@ -127,7 +149,17 @@ export const Header: React.FC<HeaderProps> = ({ onOpenBooking, onNavigate }) => 
             </div>
             
             <div className="flex flex-col space-y-3">
-              {navLinks.map((link) => (
+              {navLinks.map((link) => link.id === 'collective' ? (
+                <a
+                  key={link.id}
+                  href={`${import.meta.env.BASE_URL}skin-hormone-collective`}
+                  onClick={(event) => { event.preventDefault(); handleNavClick(link.id); }}
+                  aria-current={currentPage === 'collective' ? 'page' : undefined}
+                  className="py-1 text-left font-serif text-base text-text-charcoal transition-colors hover:text-rose-plum aria-[current=page]:text-rose-plum"
+                >
+                  {link.label}
+                </a>
+              ) : (
                 <button
                   key={link.id}
                   onClick={() => handleNavClick(link.id)}

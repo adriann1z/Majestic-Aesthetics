@@ -30,6 +30,7 @@ body {
 }
 
 html { scroll-padding-top: var(--header-offset, 215px); }
+main [id] { scroll-margin-top: var(--header-offset, 215px); }
 * { letter-spacing: 0 !important; }
 button, a, input, select, textarea { -webkit-tap-highlight-color: transparent; }
 :focus-visible { outline: 2px solid var(--color-rose-accent); outline-offset: 4px; }
@@ -174,7 +175,7 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   .site-shell { padding-bottom: calc(80px + env(safe-area-inset-bottom, 0px)); }
   .header-actions { max-width: none; }
 }
-.header-navigation { grid-column: 1 / -1; grid-row: 2; height: 53px; border-bottom: 1px solid var(--color-border-blush); padding-top: 0; gap: 27px; font-size: 13px; }
+.header-navigation { grid-column: 1 / -1; grid-row: 2; height: 53px; border-bottom: 1px solid var(--color-border-blush); padding-top: 0; gap: 22px; font-size: 13px; }
 .header-navigation button { color: var(--color-text-charcoal); font-weight: 500; }
 .hero-section { background: transparent; }
 .hero-inner { max-width: 1134px; padding-left: 36px; padding-right: 32px; padding-top: 62px; padding-bottom: 55px; }
@@ -229,6 +230,74 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
 .site-footer a:focus-visible, .site-footer button:focus-visible { outline-color: white; }
 .site-shell [role="dialog"] > div { border-radius: 12px; }
 .site-shell [role="dialog"] input, .site-shell [role="dialog"] select, .site-shell [role="dialog"] textarea { border-radius: 6px; }
+.booking-modal-overlay { animation: modal-fade-in .2s ease-out both; }
+.booking-modal-panel { animation: modal-rise-in .24s ease-out both; }
+@keyframes modal-fade-in { from { opacity: 0; } }
+@keyframes modal-rise-in { from { opacity: 0; transform: translateY(12px) scale(.985); } }
+
+.wellness-page { overflow-x: clip; }
+.wellness-hero {
+  background:
+    radial-gradient(circle at 83% 20%, rgba(217, 182, 111, .16), transparent 29%),
+    radial-gradient(circle at 8% 85%, rgba(182, 108, 141, .12), transparent 31%),
+    linear-gradient(135deg, #fffafb 0%, #fff8fb 48%, #f9edf2 100%);
+}
+.wellness-teaser {
+  background:
+    radial-gradient(circle at 88% 12%, rgba(217, 182, 111, .12), transparent 28%),
+    linear-gradient(135deg, #fffafb 0%, #fff8fb 62%, #f9edf2 100%);
+}
+.wellness-orb {
+  position: absolute;
+  pointer-events: none;
+  border: 1px solid rgba(217, 182, 111, .32);
+  border-radius: 999px;
+}
+.wellness-orb--one { width: 420px; height: 420px; right: -160px; top: -190px; }
+.wellness-orb--two { width: 250px; height: 250px; right: 70px; bottom: -170px; border-color: rgba(182, 108, 141, .2); }
+.wellness-teaser-panel,
+.wellness-process-card,
+.wellness-programme-card,
+.wellness-details { border-radius: 8px; }
+.wellness-teaser-panel { backdrop-filter: blur(12px); }
+.wellness-process-card { box-shadow: 0 12px 34px rgba(127, 86, 104, .06); }
+.wellness-programmes-inner { max-width: 1420px; }
+.wellness-programme-card {
+  box-shadow: 0 12px 36px rgba(127, 86, 104, .08);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.wellness-programme-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(157, 120, 58, .55);
+  box-shadow: 0 20px 44px rgba(127, 86, 104, .13);
+}
+.wellness-details summary::-webkit-details-marker { display: none; }
+.wellness-details summary::marker { content: ''; }
+.wellness-details[open] { border-color: rgba(157, 120, 58, .4); }
+.wellness-comparison-row {
+  display: grid;
+  grid-template-columns: minmax(200px, .85fr) minmax(210px, .9fr) minmax(0, 1.7fr);
+  gap: 28px;
+  align-items: start;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--color-border-blush);
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-text-muted);
+}
+.wellness-comparison-row:last-child { border-bottom: 0; }
+.wellness-final-cta::before,
+.wellness-final-cta::after {
+  content: '';
+  position: absolute;
+  width: 340px;
+  height: 340px;
+  border: 1px solid rgba(240, 222, 183, .2);
+  border-radius: 999px;
+  pointer-events: none;
+}
+.wellness-final-cta::before { top: -250px; left: -100px; }
+.wellness-final-cta::after { right: -100px; bottom: -260px; }
 .section-reveal { animation: section-reveal .7s ease-out both; }
 @keyframes section-reveal { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 @media (max-width: 1279px) {
@@ -289,6 +358,22 @@ p, a, h1, h2, h3, h4 { overflow-wrap: break-word; }
   .credentials-strip { padding-block: 28px; }
   .practitioner-photo-area { min-height: 380px; }
   .process-step { padding: 24px 0; }
+  .wellness-orb--one { width: 280px; height: 280px; right: -170px; top: -120px; }
+  .wellness-orb--two { display: none; }
+  .wellness-programme-card:hover { transform: none; }
+  .wellness-comparison-row:first-child { display: none; }
+  .wellness-comparison-row { display: block; padding: 22px 4px; }
+  .wellness-comparison-row > span { display: block; margin-top: 15px; }
+  .wellness-comparison-row > span::before {
+    display: block;
+    margin-bottom: 2px;
+    color: var(--color-rose-plum);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .wellness-comparison-row > span:nth-child(2)::before { content: 'Time together'; }
+  .wellness-comparison-row > span:nth-child(3)::before { content: 'Best for'; }
 }
 @media (max-width: 479px) {
   .credentials-grid { grid-template-columns: 1fr; }

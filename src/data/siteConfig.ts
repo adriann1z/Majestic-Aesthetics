@@ -39,7 +39,7 @@ export const siteConfig: ClinicInfo = {
   type: "Medical Aesthetics Clinic",
   practitioner: {
     name: "Katie Osborne",
-    titles: ["Registered Midwife", "Independent Prescriber", "Aesthetics Practitioner"],
+    titles: ["Registered Midwife", "Independent Prescriber", "Aesthetics Practitioner", "Women's Hormone Health Practitioner (IMH-C)"],
     role: "Clinical Lead & Founder",
     bioProposed: `At Majestic Aesthetics, every treatment journey starts with understanding you.
 

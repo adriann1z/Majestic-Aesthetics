@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { X, Calendar, Clock, CheckCircle2, ArrowRight, ShieldCheck, Mail, Sparkles } from 'lucide-react';
+import { X, CheckCircle2, ArrowRight, ShieldCheck, Mail } from 'lucide-react';
 import { siteConfig } from '../data/siteConfig';
 import { BrandLogo } from './BrandLogo';
 import { useDialogFocus } from '../hooks/useDialogFocus';
+import { BookingFocus, bookingChoices, generalBookingFocus } from '../data/booking';
 
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
-  defaultTreatment?: string;
+  defaultFocus?: BookingFocus;
 }
 
 export const BookingModal: React.FC<BookingModalProps> = ({
   isOpen,
   onClose,
-  defaultTreatment = "General Facial Aesthetics Consultation"
+  defaultFocus = generalBookingFocus,
 }) => {
-  const [treatmentChoice, setTreatmentChoice] = useState(defaultTreatment);
+  const [treatmentChoice, setTreatmentChoice] = useState(defaultFocus.label);
   const [preferredDays, setPreferredDays] = useState<string[]>([]);
   const [timeOfDay, setTimeOfDay] = useState("Morning (10:00 - 13:00)");
   const [clientName, setClientName] = useState("");
@@ -27,10 +28,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   useEffect(() => {
     if (isOpen) {
-      setTreatmentChoice(defaultTreatment);
+      setTreatmentChoice(defaultFocus.label);
+      setPreferredDays([]);
+      setTimeOfDay('Morning (10:00 - 13:00)');
+      setClientName('');
+      setClientEmail('');
+      setClientPhone('');
+      setNotes('');
       setIsSuccess(false);
     }
-  }, [isOpen, defaultTreatment]);
+  }, [isOpen, defaultFocus]);
 
   if (!isOpen) return null;
 
@@ -49,16 +56,20 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   return (
-    <div 
-      className="fixed inset-0 z-50 overflow-y-auto bg-black/60 backdrop-blur-xs flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-200"
+    <div
+      className="booking-modal-overlay fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/60 p-2 backdrop-blur-xs sm:p-4"
       role="dialog"
       aria-modal="true"
-      aria-label="Request a consultation"
+      aria-labelledby="booking-modal-title"
+      aria-describedby="booking-modal-description"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) onClose();
+      }}
     >
-      <div className="bg-white rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl border border-border-blush relative my-auto animate-in zoom-in-95 duration-200">
+      <div className="booking-modal-panel relative my-auto flex max-h-[calc(100dvh-1rem)] w-full max-w-xl flex-col overflow-hidden rounded-xl border border-border-blush bg-white shadow-2xl sm:max-h-[calc(100dvh-2rem)]">
         
         {/* Header with Official Logo */}
-        <div className="bg-blush-white px-6 py-4 border-b border-border-blush flex items-center justify-between">
+        <div className="flex shrink-0 items-center justify-between border-b border-border-blush bg-blush-white px-5 py-3 sm:px-6 sm:py-4">
           <div className="w-48 sm:w-56">
             <BrandLogo variant="full" showSubtitle={true} />
           </div>
@@ -74,14 +85,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
         {/* Content */}
         {isSuccess ? (
-          <div className="p-8 text-center space-y-4">
+          <div className="space-y-4 overflow-y-auto p-6 text-center sm:p-8">
             <div className="w-16 h-16 rounded-full bg-rose-soft text-rose-button flex items-center justify-center mx-auto">
               <CheckCircle2 className="w-8 h-8" />
             </div>
-            <h4 className="font-serif text-2xl text-text-charcoal">
+            <h2 id="booking-modal-title" className="font-serif text-2xl text-text-charcoal">
               Your Consultation Email Is Ready
-            </h4>
-            <p className="text-sm text-text-muted leading-relaxed max-w-md mx-auto">
+            </h2>
+            <p id="booking-modal-description" className="text-sm text-text-muted leading-relaxed max-w-md mx-auto">
               Thank you, <strong>{clientName}</strong>. Send the email draft below to request your preferred appointment. Your request has not been submitted and no appointment is confirmed yet.
             </p>
 
@@ -109,7 +120,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 sm:p-7 space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-5 overflow-y-auto overscroll-contain p-5 sm:p-7">
+            <div>
+              <p className="text-[11px] font-semibold uppercase text-rose-accent">Private consultation request</p>
+              <h2 id="booking-modal-title" className="mt-1 font-serif text-2xl text-text-charcoal">Begin your conversation with Katie</h2>
+              <p id="booking-modal-description" className="mt-1 text-xs leading-relaxed text-text-muted">Choose a focus and tell us when you are generally available. You will review and send the request from your own email app.</p>
+            </div>
             
             {/* Treatment Selector */}
             <div>
@@ -122,12 +138,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 onChange={(e) => setTreatmentChoice(e.target.value)}
                 className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-border-blush bg-blush-white text-text-charcoal focus:outline-hidden focus:ring-2 focus:ring-rose-brand/40"
               >
-                {!['General Facial Aesthetics Consultation', 'Dermal Fillers (Facial Balance & Volume)', 'Anti-Wrinkle Assessment', 'Skin Boosters & Polynucleotides', 'Obagi Medical Skincare Consultation'].includes(defaultTreatment) && <option value={defaultTreatment}>{defaultTreatment}</option>}
-                <option value="General Facial Aesthetics Consultation">General Facial Aesthetics Consultation</option>
-                <option value="Dermal Fillers (Facial Balance & Volume)">Dermal Fillers (Facial Balance & Volume)</option>
-                <option value="Anti-Wrinkle Assessment">Anti-Wrinkle Assessment</option>
-                <option value="Skin Boosters & Polynucleotides">Skin Boosters & Polynucleotides</option>
-                <option value="Obagi Medical Skincare Consultation">Obagi Medical Skincare Consultation</option>
+                {!bookingChoices.some((choice) => choice.label === defaultFocus.label) && (
+                  <option value={defaultFocus.label}>{defaultFocus.label}</option>
+                )}
+                {bookingChoices.map((choice) => (
+                  <option key={choice.label} value={choice.label}>{choice.label}</option>
+                ))}
               </select>
             </div>
 
@@ -236,22 +252,22 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
             <div>
               <label htmlFor="booking-notes" className="block text-xs font-medium text-text-charcoal mb-1">
-                Any specific areas you wish to focus on?
+                Brief scheduling note <span className="text-stone-400 font-normal">(Optional)</span>
               </label>
               <textarea
                 rows={2}
                 value={notes}
                 id="booking-notes"
                 onChange={(e) => setNotes(e.target.value)}
-                placeholder="Optional notes or questions..."
+                placeholder="For example, access needs or a brief non-medical question."
                 className="w-full px-3.5 py-2 text-sm rounded-xl border border-border-blush bg-blush-white text-text-charcoal"
               />
             </div>
 
             <div className="pt-2 flex flex-wrap gap-3 items-center justify-between border-t border-border-blush">
-              <span className="text-[11px] text-text-muted flex items-center gap-1.5">
+              <span className="flex max-w-xs items-start gap-1.5 text-[11px] leading-relaxed text-text-muted">
                 <ShieldCheck className="w-3.5 h-3.5 text-rose-button" />
-                Confidential clinic inquiry
+                Please do not share medical history or intimate health information here. Those details can be discussed privately with Katie.
               </span>
 
               <button
