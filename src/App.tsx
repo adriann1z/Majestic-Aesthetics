@@ -211,9 +211,7 @@ export default function App() {
         <FAQSection />
 
         {/* 12. Booking & Contact */}
-        <ContactSection
-          enquiryCategory="General Consultation"
-        />
+        <ContactSection />
 
       </main> : (
         <WellnessPage
