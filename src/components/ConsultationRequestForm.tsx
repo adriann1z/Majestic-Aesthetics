@@ -125,27 +125,24 @@ export const ConsultationRequestForm: React.FC<ConsultationRequestFormProps> = (
     const timeoutId = window.setTimeout(() => controller.abort(), 15000);
 
     try {
+      const formData = new FormData();
+      formData.append('access_key', accessKey);
+      formData.append('subject', `New Majestic Aesthetics enquiry - ${treatmentChoice}`);
+      formData.append('from_name', 'Majestic Aesthetics Website');
+      formData.append('name', clientName.trim());
+      formData.append('email', clientEmail.trim());
+      formData.append('phone', clientPhone.trim() || 'Not provided');
+      formData.append('Consultation Focus', treatmentChoice);
+      formData.append('Preferred Days', preferredDaysText);
+      formData.append('Preferred Time', timeOfDay);
+      formData.append('Brief Note', notes.trim() || 'None');
+      formData.append('Page URL', window.location.href);
+      formData.append('message', message);
+      formData.append('botcheck', honeypot);
+
       const response = await fetch(web3FormsEndpoint, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: accessKey,
-          subject: `New Majestic Aesthetics enquiry - ${treatmentChoice}`,
-          from_name: 'Majestic Aesthetics Website',
-          name: clientName.trim(),
-          email: clientEmail.trim(),
-          phone: clientPhone.trim() || 'Not provided',
-          'Consultation Focus': treatmentChoice,
-          'Preferred Days': preferredDaysText,
-          'Preferred Time': timeOfDay,
-          'Brief Note': notes.trim() || 'None',
-          'Page URL': window.location.href,
-          message,
-          botcheck: honeypot,
-        }),
+        body: formData,
         signal: controller.signal,
       });
 
